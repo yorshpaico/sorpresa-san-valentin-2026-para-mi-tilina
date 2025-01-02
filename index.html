@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Álbum especial virtual con fotos, poemas y música dedicados a Nicol">
+    <meta name="author" content="Pedro Paico">
+    <title>Nuestro Álbum Especial</title>
+    <!-- Optimized CSS loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="text-center py-4">
+            <h1 class="display-4">Nuestros Momentos 2023-2024 💖</h1>
+            <p class="lead">Un espacio lleno de amor y recuerdos inolvidables junto a tí</p>
+        </header>
+
+        <section id="musica" class="py-4">
+            <div class="music-player text-center">
+                <audio id="backgroundMusic" preload="auto">
+                    <source src="audio/cancion1.mp3" type="audio/mpeg">
+                </audio>
+                <div class="volume-control mb-3">
+                    <label for="volumeControl" class="form-label">Volumen</label>
+                    <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+                </div>
+                <div class="controls">
+                    <button id="repeatButton" class="btn btn-outline-primary" title="Repetir">
+                        <i class="fas fa-redo"></i>
+                    </button>
+                    <button id="shuffleButton" class="btn btn-outline-primary" title="Aleatorio">
+                        <i class="fas fa-random"></i>
+                    </button>
+                    <button id="prevButton" class="btn btn-outline-primary" title="Anterior">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button id="playPauseButton" class="btn btn-primary" title="Reproducir/Pausar">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="nextButton" class="btn btn-outline-primary" title="Siguiente">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="carrusel" class="py-4">
+            <h2 class="text-center mb-4">Momentos Memorables Contigo 💕</h2>
+            <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-inner" id="carouselContainer">
+                    <!-- Las imágenes se cargarán dinámicamente mediante JavaScript -->
+                </div>
+                <div id="carouselPhrase" class="text-center mt-3 carousel-caption"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="carta-section py-4">
+            <div class="carta-container text-center">
+                <button class="btn btn-lg btn-primary" id="verCartaBtn">Ver Carta 💌</button>
+            </div>
+
+            <div id="cartaContent" class="card mt-4" style="display:none;">
+                <div class="card-body">
+                    <h3 class="card-title">Mi querida Nini</h3>
+                    <div class="card-text">
+                        <p>Al cerrar este año que termina, no puedo evitar sonreír al recordar cada momento que hemos compartido.</p>
+                        <p>Este primer año a tu lado ha sido una aventura maravillosa, llena de risas, complicidad y mucho amor. Gracias por ser tan linda conmigo, por tu paciencia, tu alegría y por la forma tan especial en que me haces sentir.</p>
+                        <p>Cada día a tu lado es un regalo, y me siento increíblemente afortunado de tenerte en mi vida.</p>
+                        <p>Gracias por ser mi compañera, mi confidente y mi mejor amiga.</p>
+                        <p>Te deseo un feliz año nuevo, mi amor. Que este nuevo año que comienza esté lleno de momentos inolvidables juntos, de sueños cumplidos y de un amor que siga creciendo cada día más.</p>
+                        <p>Eres una persona increíble, Nini. Eres hermosa, inteligente, divertida y tienes un corazón de oro. Me inspiras a ser mejor persona y me llenas de felicidad con tan solo una sonrisa. Te amo con todo mi ser.</p>
+                        <p class="mb-2">Con todo mi amor,</p>
+                        <p class="font-italic">Tu Tilín, Pedrito</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="acrostico" class="py-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Acróstico para Ti 💝</h2>
+                    <div class="acrostico-content">
+                        <p><strong>N</strong>unca olvidaré los momentos juntos.<br>
+                           <strong>I</strong>nfinito amor en cada instante.<br>
+                           <strong>C</strong>onstruimos recuerdos únicos.<br>
+                           <strong>O</strong>ramos por un futuro brillante.<br>
+                           <strong>L</strong>lenos de felicidad y esperanza.<br>
+                           <strong>E</strong>res mi todo, mi gran amor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="poema" class="py-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2 class="card-title mb-4">Un Poema para Ti 💘</h2>
+                    <blockquote class="blockquote">
+                        <p>
+                            En tus ojos hallé mi hogar,<br>
+                            en tus abrazos, mi calma.<br>
+                            Cada día contigo,<br>
+                            es un verso en mi alma.
+                        </p>
+                        <footer class="blockquote-footer mt-2">Para mi alfajorcita linda</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-3">
+        <p class="mb-0">Con mucho amor, tu Tilín 💕</p>
+    </footer>
+
+    <!-- Modal de Bienvenida -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="welcomeModalLabel">¡Bienvenida! 💖</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es un espacio especial lleno de amor y recuerdos de todo este año mi amor. ¡Espero que te guste y las canciones también! 😊</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">¡Comenzar! 💫</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
