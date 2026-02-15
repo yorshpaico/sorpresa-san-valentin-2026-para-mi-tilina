@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Nini - 2 Años y 2 Meses</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    
+    <!-- CSS Dependencies -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="loginScreen" class="login-overlay">
-    <div class="login-content text-center fade-in">
-        <h1 class="display-1">🔒</h1>
-        <h2 class="text-white mb-4">Solo para Nini</h2>
-        <p class="text-white lead">Para entrar, escribe el día y mes de nuestro aniversario (DDMM):</p>
-        
-        <div class="d-flex justify-content-center gap-2 mb-3">
-            <input type="password" id="passwordInput" class="form-control text-center fs-4" style="max-width: 150px;" placeholder="Ej: 1512" maxlength="4">
-            <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle">
-                <i class="fas fa-heart"></i>
-            </button>
+
+    <!-- PANTALLA DE ACCESO -->
+    <div id="loginScreen" class="login-overlay">
+        <div class="login-content text-center">
+            <h1 class="display-1 mb-3">🔒</h1>
+            <h2 class="text-white mb-3">Solo para Nini</h2>
+            <p class="text-white mb-4">Escribe nuestra fecha de aniversario (DDMM):</p>
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <input type="password" id="passwordInput" class="form-control text-center fs-4" style="max-width: 140px;" placeholder="1512" maxlength="4" autocomplete="off">
+                <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <p id="errorMsg" class="text-warning fw-bold" style="display:none;">Esa no es la fecha... 😢</p>
         </div>
-        <p id="errorMsg" class="text-warning fw-bold" style="display:none;">Esa no es la fecha... 😢</p>
     </div>
-</div>
+
     <main class="container">
         <header class="text-center py-5 fade-in">
-            <h1 class="display-4 fw-bold">Felices 2 Años y 2 Meses 💖</h1>
-            <p class="lead text-white">Cada segundo a tu lado cuenta.</p>
+            <h1 class="display-4 fw-bold text-white" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.2);">Felices 2 Años y 2 Meses 💖</h1>
+            <p class="lead text-white">Cada segundo a tu lado cuenta, mi amor.</p>
         </header>
 
-        <section id="contador-section" class="mb-5 fade-in">
-            <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-3">
-                </div>
+        <!-- CONTADOR -->
+        <section class="mb-5 fade-in">
+            <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-2 gap-md-3"></div>
         </section>
 
+        <!-- REPRODUCTOR -->
         <section id="musica" class="py-3 fade-in">
-            <div class="music-player text-center p-4">
-                <h5 id="songTitle" class="mb-3 text-muted">Seleccionando canción... 🎵</h5>
-                <audio id="backgroundMusic" preload="auto"></audio>
-                
+            <div class="music-player text-center">
+                <h5 id="songTitle" class="mb-3 text-muted italic">🎵 Selecciona una canción</h5>
+                <audio id="backgroundMusic"></audio>
                 <div class="controls d-flex justify-content-center align-items-center gap-3 mb-3">
                     <button id="shuffleButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-random"></i></button>
                     <button id="prevButton" class="btn btn-secondary rounded-circle"><i class="fas fa-backward"></i></button>
@@ -48,27 +52,24 @@
                     <button id="nextButton" class="btn btn-secondary rounded-circle"><i class="fas fa-forward"></i></button>
                     <button id="repeatButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-redo"></i></button>
                 </div>
-                
                 <div class="volume-control w-75 mx-auto">
                     <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
                 </div>
             </div>
         </section>
 
+        <!-- CARRUSEL -->
         <section id="carrusel" class="py-4 fade-in">
             <div id="photoCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
-                <div class="carousel-inner" id="carouselContainer">
-                    </div>
-                
+                <div class="carousel-inner" id="carouselContainer"></div>
                 <div class="carousel-caption d-none d-md-block custom-caption">
-                    <p id="carouselPhrase" class="h5 mb-0">Cargando recuerdos...</p>
+                    <p id="carouselPhrase" class="h5 mb-0">Un momento especial...</p>
                 </div>
-
                 <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-next-icon"></span>
                 </button>
             </div>
             <div class="text-center mt-3 d-md-none">
@@ -76,49 +77,46 @@
             </div>
         </section>
 
-        <section class="carta-section py-4 text-center fade-in">
-            <button class="btn btn-light btn-lg shadow-sm" id="verCartaBtn">Leer Carta 💌</button>
-            
+        <!-- CARTA -->
+        <section class="py-4 text-center fade-in">
+            <button class="btn btn-light btn-lg shadow-sm px-5 rounded-pill" id="verCartaBtn">Leer Carta 💌</button>
             <div id="cartaContent" class="card mt-4 p-4 text-start shadow" style="display:none;">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4">Mi querida Nini 🌹</h3>
                     <p>Hoy celebramos <strong>2 años y 2 meses</strong> de una historia increíble.</p>
-                    <p>Desde aquel 15 de diciembre de 2023, mi vida cambió para siempre. Gracias por ser mi compañera, mi confidente y mi mejor amiga. Hemos superado obstáculos y construido recuerdos que atesoraré eternamente.</p>
-                    <p>Te prometo seguir cuidando este amor, seguir riendo contigo y seguir soñando juntos. Eres mi presente y mi futuro.</p>
+                    <p>Desde aquel 15 de diciembre de 2023, mi vida cambió para siempre. Gracias por ser mi compañera y mi mejor amiga.</p>
+                    <p>Te prometo seguir cuidando este amor. Eres mi presente y mi futuro.</p>
                     <p class="text-end mt-4"><strong>Con todo mi amor,<br>Tu Tilín, Pedrito.</strong></p>
                 </div>
             </div>
         </section>
+
         <div class="text-center my-4">
-    <button id="loveButton" class="btn btn-danger btn-lg rounded-pill shadow-lg pulse-animation">
-        ¡Presióname para más amor! 💖
-    </button>
-</div>
+            <button id="loveButton" class="btn btn-danger btn-lg rounded-pill shadow-lg pulse-animation">
+                ¡Presióname para más amor! 💖
+            </button>
+        </div>
     </main>
 
     <footer class="text-center py-4 text-white">
-        <small>Hecho con ❤️ por Pedro para Nini &bull; 2026</small>
+        <small>Hecho con ❤️ para Nini &bull; 2026</small>
     </footer>
 
+    <!-- MODAL INICIAL -->
     <div class="modal fade" id="welcomeModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
-                <div class="modal-header border-0 justify-content-center">
-                    <h2 class="modal-title">¡Hola mi amor! 💘</h2>
-                </div>
-                <div class="modal-body">
-                    <p>He preparado esto para celebrar nuestros 2 años y 2 meses.</p>
-                    <p>Sube el volumen y disfruta...</p>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                    <button type="button" class="btn btn-danger rounded-pill px-4" data-bs-dismiss="modal">Ver Sorpresa 😍</button>
-                </div>
+                <h2 class="mb-3 text-danger">¡Hola mi amor! 💘</h2>
+                <p>He preparado este espacio para celebrar lo nuestro.</p>
+                <p>Sube el volumen y disfruta de nuestros recuerdos...</p>
+                <button type="button" class="btn btn-danger rounded-pill px-5 py-2" data-bs-dismiss="modal">Entrar 😍</button>
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
