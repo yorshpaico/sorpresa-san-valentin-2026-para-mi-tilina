@@ -216,4 +216,30 @@ document.addEventListener("DOMContentLoaded", () => {
             confetti({ particleCount: 100, spread: 360, shapes: ['heart'], colors: ['#ff4757', '#ff6b81'] });
         };
     }
+
+    // === GENERADOR DE CORAZONES ROMÁNTICOS ===
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        heart.innerHTML = '❤';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        heart.style.opacity = Math.random() * 0.5 + 0.2;
+        
+        document.body.appendChild(heart);
+        
+        setTimeout(() => {
+            heart.remove();
+        }, 10000);
+    }
+
+    // Crear corazones periódicamente
+    setInterval(createHeart, 800);
+
+**Sugerencias adicionales:**
+1.  **Sombras suaves:** He añadido sombras en tonos rosados (`rgba(255, 77, 109, 0.2)`) para que todo combine con el tema del amor.
+2.  **Móvil:** He ajustado el carrusel para que en el celular se vea un poco más compacto y no se corte nada.
+
+¡Con esto, la página se va a ver de película, mi rey! ¿Te gustaría que probemos algún color específico que le guste a ella? Por ejemplo, si prefiere el violeta o el azul cielo, podemos ajustar el degradado.
 });
