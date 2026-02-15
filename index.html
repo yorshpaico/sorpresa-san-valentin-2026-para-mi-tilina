@@ -2,221 +2,189 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Nini - 2 Años y 2 Meses 💖</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- Variables y Temas --- */
         :root {
-            --primary: #ff3366;       /* Rosa vibrante principal */
-            --secondary: #ff6b8b;     /* Rosa secundario más suave */
-            --accent: #ff0066;        /* Acento fucsia */
-            --bg-warm: #fff0f5;       /* Fondo cálido claro */
-            --text-dark: #4a4e69;     /* Texto oscuro */
-            --glass-bg: rgba(255, 255, 255, 0.85); /* Efecto cristal */
-            --glass-border: rgba(255, 255, 255, 0.5);
-            --shadow-soft: 0 10px 30px rgba(255, 51, 102, 0.2); /* Sombra suave rosada */
-            --shadow-strong: 0 15px 45px rgba(255, 0, 102, 0.3);
-             /* Degradado de fondo romántico y dinámico */
-            --bg-gradient: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 25%, #ffd1dc 50%, #ffc4d6 75%, #ffb3c6 100%);
+            --primary: #ff4d6d;
+            --secondary: #ff758c;
+            --accent: #ff0080;
+            --dark: #4a4e69;
+            --glass: rgba(255, 255, 255, 0.90);
+            --shadow: 0 15px 45px rgba(255, 0, 128, 0.35);
+            /* Degradado vibrante */
+            --bg-gradient: linear-gradient(-45deg, #ff4e50, #f9d423, #ff0080, #7928ca);
         }
 
-        /* --- Estilos Globales --- */
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--bg-gradient);
             background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite; /* Animación suave del fondo */
+            animation: gradientAnimation 12s ease infinite;
             min-height: 100vh;
-            color: var(--text-dark);
-            overflow-x: hidden; /* Evitar scroll horizontal */
+            color: var(--dark);
+            margin: 0;
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* Animación del degradado de fondo */
-        @keyframes gradientShift {
+        @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Títulos con tipografía cursiva romántica */
-        h1, h2, h3, .dancing-font {
+        /* Títulos especiales */
+        .dancing-font {
             font-family: 'Dancing Script', cursive;
         }
 
-        /* --- Pantalla de Login (Seguridad) --- */
+        /* Pantalla de Login (Seguridad) */
         .login-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--bg-warm);
-            /* Capa superior de brillos para el login */
-            background-image: radial-gradient(circle at center, transparent 0%, var(--bg-warm) 70%), 
-                              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff99cc' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: 9999; /* Siempre encima */
-            display: flex; align-items: center; justify-content: center;
-            transition: all 0.8s ease-in-out; /* Transición suave al desaparecer */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s;
         }
 
         .login-content {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px); /* Efecto de desenfoque trasero */
-            -webkit-backdrop-filter: blur(25px);
-            padding: 3.5rem;
-            border-radius: 40px;
-            box-shadow: var(--shadow-strong);
-            border: 2px solid var(--glass-border);
-            max-width: 450px; width: 90%;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            max-width: 420px;
+            width: 90%;
             text-align: center;
-            transform: translateY(0);
-            transition: transform 0.5s ease;
         }
-        /* Efecto de flotación al pasar el mouse sobre el login */
-        .login-content:hover { transform: translateY(-5px); }
 
-        /* Clase para ocultar el login al entrar */
         .login-hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transform: scale(0.8) translateY(-50px); /* Efecto de reducción y subida */
+            transform: scale(0.9);
+            transition: all 0.8s ease;
         }
 
-        .login-input {
-            background: rgba(255, 255, 255, 0.7);
-            border: 2px solid #ffccd5;
-            color: var(--primary);
-            font-weight: bold;
-            letter-spacing: 4px;
-            transition: all 0.3s;
-        }
-        .login-input:focus {
-            background: white;
-            border-color: var(--primary);
-            box-shadow: 0 0 15px rgba(255, 51, 102, 0.3);
-        }
-
-        /* --- Componentes de la Página Principal --- */
-        
-        /* Cajas del Contador */
+        /* Contador */
         .time-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            border-radius: 25px;
-            box-shadow: var(--shadow-soft);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             text-align: center;
             min-width: 90px;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
-        }
-        .time-box:hover { transform: translateY(-8px) scale(1.05); } /* Hover animado */
-        .time-val { display: block; font-size: 2.5rem; font-weight: 800; color: var(--primary); line-height: 1; }
-        .time-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--secondary); font-weight: 700; margin-top: 5px; }
-
-        /* Reproductor de Música y Tarjeta */
-        .music-player, .card-custom {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 35px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid var(--glass-border);
-            transition: all 0.4s ease;
-        }
-        .music-player:hover, .card-custom:hover {
-            box-shadow: var(--shadow-strong);
-            transform: translateY(-5px);
-        }
-
-        /* Botones Personalizados */
-        .btn-custom-primary {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            border: none; color: white;
-            box-shadow: 0 8px 20px rgba(255, 51, 102, 0.4);
+            border: 2px solid #ffe5ec;
             transition: all 0.3s ease;
         }
-        .btn-custom-primary:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 12px 25px rgba(255, 51, 102, 0.5);
-            color: white;
+        .time-box:hover { transform: translateY(-5px); }
+
+        .time-val {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
         }
 
-        /* --- Carrusel --- */
-        .carousel-container-custom {
-            border-radius: 35px;
-            overflow: hidden;
-            box-shadow: var(--shadow-strong);
-            border: 4px solid white;
-            background: rgba(255,255,255,0.2);
-            position: relative;
+        .time-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8e9aaf;
+            font-weight: 700;
         }
+
+        /* --- CARRUSEL ORIGINAL (El que funciona bien) --- */
         .carousel-inner {
-            height: 60vh; /* Altura adaptable */
-            min-height: 400px;
-        }
-        .carousel-item { height: 100%; transition: transform 1s ease-in-out, opacity 0.5s ease-in-out; }
-        .carousel-item img {
-            height: 100%; width: 100%;
-            object-fit: contain; /* Ajustar imagen sin cortar */
-            display: block; margin: 0 auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
-        }
-        .carousel-caption-custom {
-            background: rgba(255, 255, 255, 0.92);
-            color: var(--text-dark);
-            border-radius: 50px;
-            padding: 15px 30px;
-            bottom: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border: 2px solid var(--secondary);
-            backdrop-filter: blur(5px);
-            max-width: 80%; margin: 0 auto;
-            left: 10%; right: 10%;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            height: 65vh;
+            min-height: 450px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            /* Sombra fuerte para resaltar */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
         }
 
-        /* --- Elementos Flotantes (Corazones, Mariposas, etc.) --- */
+        .carousel-item {
+            height: 100%; /* Asegura que ocupe todo el alto */
+        }
+
+        .carousel-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain; /* Clave: Mantiene proporción sin cortar */
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .custom-caption {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+            border-radius: 60px;
+            padding: 12px 35px;
+            bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1.5px solid var(--primary);
+        }
+
+        /* Elementos Flotantes (Mariposas y Corazones) */
         .floating-element {
             position: fixed;
-            pointer-events: none; /* No interfieren con clicks */
-            z-index: 10; /* CAMBIADO: Ahora están por encima de todo (menos el login) */
+            pointer-events: none;
+            z-index: 999; /* Por encima de todo */
             animation: floatAnimation linear forwards;
             font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-            /* Sombra blanca para que resalten sobre fondos oscuros/fotos */
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5)); 
-            will-change: transform, opacity; /* Optimización de rendimiento */
+            text-shadow: 0 0 10px rgba(255,255,255,0.8); /* Brillo alrededor */
         }
 
-        /* Animación de flotar hacia arriba y rotar */
         @keyframes floatAnimation {
-            0% { transform: translateY(105vh) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.9; } /* Aparecen rápido */
-            80% { opacity: 0.9; }
-            100% { transform: translateY(-15vh) rotate(360deg) translateX(30px); opacity: 0; } /* Desaparecen arriba */
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) translateX(30px) rotate(360deg); opacity: 0; }
         }
 
-        /* Animación de pulso para botones importantes */
-        .pulse-animation { animation: pulse 2s infinite; }
+        .music-player, .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: none;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.7); }
-            50% { transform: scale(1.08); box-shadow: 0 0 0 15px rgba(255, 51, 102, 0); }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
+            50% { transform: scale(1.08); box-shadow: 0 0 0 20px rgba(255, 77, 109, 0); }
         }
 
-        /* --- Ajustes Responsivos (Móviles) --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            .carousel-inner { height: 50vh; min-height: 320px; }
-            .time-box { min-width: 75px; padding: 10px 12px; }
+            header h1 { font-size: 2.2rem; }
+            .carousel-inner { height: 50vh; min-height: 350px; }
+            .time-box { min-width: 80px; padding: 10px; }
             .time-val { font-size: 1.8rem; }
-            .login-content { padding: 2.5rem 2rem; }
-            .carousel-caption-custom { width: 95%; left: 2.5%; right: 2.5%; padding: 10px 20px; bottom: 20px;}
-             /* Ocultar caption en móviles muy pequeños si molesta */
-            @media (max-height: 600px) { .carousel-caption-custom { display: none; } }
         }
     </style>
 </head>
@@ -225,121 +193,97 @@
     <div id="loginScreen" class="login-overlay">
         <div class="login-content">
             <div class="mb-4">
-                <span style="font-size: 5.5rem; display: inline-block;" class="pulse-animation">💖</span>
+                <span style="font-size: 5rem;" class="pulse-animation">💖</span>
             </div>
-            <h2 class="mb-3 fw-bold dancing-font" style="color: var(--primary); font-size: 2.8rem;">Hola, Nini</h2>
-            <p class="mb-4" style="font-size: 1.1rem; color: var(--text-dark);">Introduce nuestra fecha especial (DDMM) para entrar a tu sorpresa:</p>
-            
-            <div class="d-flex justify-content-center gap-2 mb-3 mx-auto" style="max-width: 320px;">
-                <input type="password" id="passwordInput" class="form-control text-center fs-3 login-input rounded-pill py-2" placeholder="••••" maxlength="4" autocomplete="off" inputmode="numeric" pattern="[0-9]*">
-                <button id="loginBtn" class="btn btn-custom-primary btn-lg rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                    <i class="fas fa-arrow-right"></i>
+            <h2 class="mb-3 fw-bold dancing-font" style="color: var(--primary); font-size: 2.5rem;">Hola, Nini</h2>
+            <p class="mb-4 text-muted">Escribe nuestra fecha especial (DDMM) para abrir tu regalo:</p>
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <input type="password" id="passwordInput" class="form-control text-center fs-3" style="max-width: 160px; border-radius: 15px;" placeholder="****" maxlength="4" autocomplete="off">
+                <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle shadow pulse-animation">
+                    <i class="fas fa-heart"></i>
                 </button>
             </div>
-            <p id="errorMsg" class="text-danger fw-bold mt-3" style="display:none; font-size: 0.95rem;">
-                <i class="fas fa-circle-exclamation me-2"></i>Esa no es la fecha, mi amor. Intenta de nuevo. 🥺
-            </p>
+            <p id="errorMsg" class="text-danger fw-bold" style="display:none;">¡Ups! Esa no es la fecha, inténtalo de nuevo mi amor. 😢</p>
         </div>
     </div>
 
-    <main class="container py-4" style="max-width: 900px;">
+    <main class="container py-4">
         <header class="text-center py-5">
-            <h1 class="display-3 fw-bold dancing-font" style="color: var(--primary); text-shadow: 2px 2px 4px rgba(255,255,255,0.5);">Feliz Aniversario, Mi Amor</h1>
-            <p class="lead fw-light fs-4 mt-3" style="color: var(--text-dark);">2 Años y 2 Meses de pura magia a tu lado. ✨</p>
-            <div class="mt-2" style="color: var(--secondary); font-size: 0.9rem;">(Desde el 15 de Diciembre de 2023)</div>
+            <h1 class="display-3 fw-bold text-white dancing-font" style="text-shadow: 2px 2px 15px rgba(0,0,0,0.3);">Nuestro Amor Eterno 💖</h1>
+            <p class="lead text-white fw-light fs-4">Felicidades por estos 2 años y 2 meses maravillosos.</p>
         </header>
 
         <section class="mb-5 text-center">
-            <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-3 gap-md-4 align-items-center">
-                <div class="spinner-border text-danger" role="status"><span class="visually-hidden">Cargando...</span></div>
-            </div>
+            <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-2 gap-md-4">
+                </div>
         </section>
 
         <section id="musica" class="mb-5">
             <div class="music-player text-center p-4">
-                <h5 class="mb-3 dancing-font fw-bold" style="color: var(--primary);"><i class="fas fa-music me-2"></i>Nuestra Playlist</h5>
-                <h6 id="songTitle" class="mb-4 text-muted fst-italic text-truncate px-3">🎵 Dale play para escuchar...</h6>
+                <h6 id="songTitle" class="mb-3 text-muted fst-italic">🎵 Pulsa Play para nuestra música...</h6>
                 <audio id="backgroundMusic"></audio>
-                
-                <div class="controls d-flex justify-content-center align-items-center gap-3 mb-4">
-                    <button id="shuffleButton" class="btn btn-outline-secondary btn-sm rounded-circle p-2" data-bs-toggle="tooltip" title="Aleatorio"><i class="fas fa-random"></i></button>
-                    <button id="prevButton" class="btn btn-secondary btn-lg rounded-circle shadow-sm p-3" style="width: 50px; height: 50px;"><i class="fas fa-backward"></i></button>
-                    <button id="playPauseButton" class="btn btn-custom-primary btn-lg rounded-circle shadow-lg pulse-animation p-4" style="width: 80px; height: 80px; font-size: 2rem;"><i class="fas fa-play ps-1"></i></button>
-                    <button id="nextButton" class="btn btn-secondary btn-lg rounded-circle shadow-sm p-3" style="width: 50px; height: 50px;"><i class="fas fa-forward"></i></button>
-                    <button id="repeatButton" class="btn btn-outline-secondary btn-sm rounded-circle p-2" data-bs-toggle="tooltip" title="Repetir"><i class="fas fa-redo"></i></button>
+                <div class="controls d-flex justify-content-center align-items-center gap-3 mb-3">
+                    <button id="shuffleButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-random"></i></button>
+                    <button id="prevButton" class="btn btn-secondary btn-sm rounded-circle"><i class="fas fa-backward"></i></button>
+                    <button id="playPauseButton" class="btn btn-danger btn-lg rounded-circle shadow-lg pulse-animation"><i class="fas fa-play"></i></button>
+                    <button id="nextButton" class="btn btn-secondary btn-sm rounded-circle"><i class="fas fa-forward"></i></button>
+                    <button id="repeatButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-redo"></i></button>
                 </div>
-                
-                <div class="volume-control w-75 mx-auto d-flex align-items-center gap-3">
-                    <i class="fas fa-volume-down text-muted"></i>
-                    <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5" style="accent-color: var(--primary);">
-                    <i class="fas fa-volume-up text-muted"></i>
+                <div class="volume-control w-75 mx-auto">
+                    <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
                 </div>
             </div>
         </section>
 
         <section id="carrusel" class="mb-5">
-            <div class="carousel-container-custom shadow-lg">
-                <div id="photoCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="false"> <div class="carousel-inner" id="carouselContainer">
-                         <div class="carousel-item active d-flex align-items-center justify-content-center h-100">
-                             <div class="spinner-grow text-danger" role="status"></div>
-                        </div>
+            <div id="photoCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carouselContainer">
                     </div>
-                    
-                    <div class="carousel-caption-custom text-center fade-in">
-                        <p id="carouselPhrase" class="h5 mb-0 dancing-font fw-bold">Cada momento contigo es un tesoro...</p>
-                    </div>
-
-                    <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev" style="opacity: 1;">
-                        <span class="bg-white text-danger rounded-circle shadow p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; opacity: 0.8;"><i class="fas fa-chevron-left fs-4"></i></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next" style="opacity: 1;">
-                        <span class="bg-white text-danger rounded-circle shadow p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; opacity: 0.8;"><i class="fas fa-chevron-right fs-4"></i></span>
-                    </button>
+                <div class="carousel-caption d-none d-md-block custom-caption">
+                    <p id="carouselPhrase" class="h5 mb-0 dancing-font fw-bold">Cada foto es un recuerdo que atesoro...</p>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            <div class="text-center mt-3 d-md-none">
+                <p class="lead fst-italic text-white bg-dark bg-opacity-25 rounded-pill py-2 px-3" id="mobilePhrase"></p>
             </div>
         </section>
 
         <section class="text-center mb-5">
-            <button class="btn btn-custom-primary btn-lg shadow px-5 rounded-pill fw-bold" id="verCartaBtn">
-                <i class="fas fa-envelope me-2"></i>Ver nuestra carta de amor
-            </button>
-            <div id="cartaContent" class="card-custom mt-4 p-4 p-md-5 text-start mx-auto" style="display:none; max-width: 700px;">
+            <button class="btn btn-light btn-lg shadow px-5 rounded-pill fw-bold text-danger border-2 border-danger" id="verCartaBtn">Ver nuestra carta de amor 💌</button>
+            <div id="cartaContent" class="card mt-4 p-4 text-start" style="display:none; transition: 0.5s;">
                 <div class="card-body">
-                    <h2 class="text-center mb-4 dancing-font fw-bold" style="color: var(--primary);">Mi amada Nini 🌹</h2>
-                    <div style="font-size: 1.15rem; line-height: 1.8;">
-                        <p>Hoy se cumplen <strong>2 años y 2 meses</strong> desde que empezamos este camino juntos, y te juro que cada día me enamoro más de ti.</p>
-                        <p>Desde aquel 15 de diciembre de 2023, trajiste una luz increíble a mi vida. Eres mi compañera, mi confidente, mi paz y mi refugio seguro.</p>
-                        <p>Gracias por cada risa, por cada abrazo que reinicia mi mundo y por amarme exactamente como soy. No veo la hora de seguir sumando capítulos a esta historia tan nuestra.</p>
-                        <p class="fw-bold" style="color: var(--accent);">Eres mi presente más bonito y el futuro que siempre soñé. Te amo con toda mi alma.</p>
-                    </div>
-                    <div class="text-end mt-5">
-                        <p class="fs-4 fw-bold dancing-font" style="color: var(--primary);">Siempre tuyo,<br>Tu Pedrito. ❤️</p>
-                    </div>
+                    <h3 class="card-title text-center mb-4 text-danger fw-bold dancing-font">Mi amada Nini 🌹</h3>
+                    <p class="fs-5">Hoy celebramos <strong>2 años y 2 meses</strong> de una historia que parece sacada de un cuento.</p>
+                    <p class="fs-5">Desde aquel 15 de diciembre de 2023, mi vida se llenó de luz. Eres mi refugio y mi mejor amiga.</p>
+                    <p class="fs-5">Gracias por amarme tal como soy. Eres mi presente y mi futuro. Te amo mucho.</p>
+                    <p class="text-end mt-4 fs-4 fw-bold text-danger dancing-font">Con todo mi amor,<br>Tu Tilín, Pedrito. ❤️</p>
                 </div>
             </div>
         </section>
 
-        <div class="text-center mb-5 pb-4">
-            <button id="loveButton" class="btn btn-custom-primary btn-lg rounded-pill shadow-lg pulse-animation px-5 py-3 fs-4 fw-bold">
-                ¡Toca para más magia! ✨💖
+        <div class="text-center mb-5">
+            <button id="loveButton" class="btn btn-danger btn-lg rounded-pill shadow-lg pulse-animation px-5 py-3 fs-4 fw-bold">
+                ¡Más Magia! ✨💖
             </button>
         </div>
     </main>
 
-    <footer class="text-center py-4 text-muted" style="background: rgba(255,255,255,0.4);">
-        <small class="fw-bold">Hecho con todo el ❤️ del mundo por Pedrito para Nini &bull; 2026</small>
+    <footer class="text-center py-4 text-white">
+        <small class="opacity-75">Hecho con el alma ❤️ por Pedrito para Nini &bull; 2026</small>
     </footer>
 
-    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="welcomeModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content card-custom text-center p-4 border-0">
-                <div class="modal-body">
-                    <h2 class="mb-3 dancing-font fw-bold" style="color: var(--primary); font-size: 2.5rem;">¡Lo lograste, mi vida! 💘</h2>
-                    <p class="fs-5 mb-4">He preparado este pequeño rincón digital con mucho amor para celebrar nuestro día. Espero que te guste tanto como a mí me gustas tú.</p>
-                    <button type="button" class="btn btn-custom-primary btn-lg rounded-pill px-5 py-2 shadow-sm" data-bs-dismiss="modal">
-                        <i class="fas fa-heart me-2"></i>Ver mi sorpresa 😍
-                    </button>
-                </div>
+            <div class="modal-content text-center p-4">
+                <h2 class="mb-3 text-danger fw-bold dancing-font">¡Hola amor mío! 💘</h2>
+                <p class="fs-5">He preparado esta sorpresa para que nunca olvides lo mucho que te amo.</p>
+                <button type="button" class="btn btn-danger btn-lg rounded-pill px-5 py-2 mt-3" data-bs-dismiss="modal">Entrar 😍</button>
             </div>
         </div>
     </div>
@@ -349,389 +293,160 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // --- CONFIGURACIÓN PRINCIPAL ---
             const CONFIG = {
-                START_DATE: new Date('2023-12-15T00:00:00'), // Fecha de inicio
-                PASSWORD: "1512", // Contraseña de acceso
+                START_DATE: new Date('2023-12-15T00:00:00'),
                 CAROUSEL: { 
-                    INTERVAL: 4000, // Tiempo entre fotos (ms)
-                    // === ACTUALIZADO A 120 FOTOS ===
-                    TOTAL_IMAGES: 120, 
-                    IMAGE_PATH: './img/photo' // Ruta base de imágenes
+                    INTERVAL: 4500, 
+                    TOTAL_IMAGES: 120, // ACTUALIZADO A 120 FOTOS
+                    IMAGE_PATH: './img/photo' 
                 },
                 PHRASES: [
-                    "Eres la razón de mis sonrisas diarias.", "Tu amor ilumina mi vida entera.", "Cada segundo contigo es un regalo.",
-                    "Eres mi sol, mi luna y mis estrellas.", "Tu risa es mi melodía favorita.", "Juntos, todo es mejor.",
-                    "Eres mi hoy y todos mis mañanas.", "Amo cada detalle que te hace única.", "Gracias por ser mi paz y mi hogar.",
-                    "Nuestra historia es mi cuento favorito."
+                    "Eres la razón por la que sonrío cada día.", "Tu amor llena mi vida de colores vivos.", "Cada momento contigo es un regalo.",
+                    "Eres mi sol constante.", "Tu risa es la melodía más dulce.", "A tu lado, todo es perfecto.",
+                    "Eres mi hoy, mi mañana y mi siempre.", "Amo cada pequeño detalle de ti.", "Gracias por ser mi paz.",
+                    "Nuestra historia de amor es mi favorita."
                 ],
-                // === ACTUALIZADO A 40 CANCIONES ===
+                // ACTUALIZADO A 40 CANCIONES
                 SONGS: Array.from({length: 40}, (_, i) => `audio/cancion${i+1}.mp3`)
             };
 
-            // Inicializar Tooltips de Bootstrap
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl)
-            });
-
-            // -----------------------------------------
-            // 1. Lógica del Contador de Tiempo
-            // -----------------------------------------
+            // 1. Contador
             function actualizarContador() {
                 const now = new Date();
                 const startDate = CONFIG.START_DATE;
-                
-                // Cálculo preciso de años, meses, días
                 let years = now.getFullYear() - startDate.getFullYear();
                 let months = now.getMonth() - startDate.getMonth();
                 let days = now.getDate() - startDate.getDate();
-
-                // Ajuste por si el día/mes actual es menor al de inicio
-                if (days < 0) {
-                    months--;
-                    // Obtener días del mes anterior
-                    const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-                    days += lastMonth.getDate();
-                }
-                if (months < 0) {
-                    years--;
-                    months += 12;
-                }
-
-                // Cálculo de horas, minutos, segundos usando timestamp
+                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
+                if (months < 0) { years--; months += 12; }
                 const diff = now - startDate;
                 const h = Math.floor((diff % 86400000) / 3600000);
                 const m = Math.floor((diff % 3600000) / 60000);
                 const s = Math.floor((diff % 60000) / 1000);
-
-                // Función helper para formatear a 2 dígitos (01, 05, etc.)
-                const fmt = (n) => n.toString().padStart(2, '0');
-
-                // Inyectar HTML en el contenedor
                 document.getElementById('contador-amor').innerHTML = `
                     <div class="time-box"><span class="time-val">${years}</span><span class="time-label">Años</span></div>
                     <div class="time-box"><span class="time-val">${months}</span><span class="time-label">Meses</span></div>
-                    <div class="time-box"><span class="time-val">${fmt(days)}</span><span class="time-label">Días</span></div>
-                    <div class="time-box"><span class="time-val">${fmt(h)}</span><span class="time-label">Hrs</span></div>
-                    <div class="time-box"><span class="time-val">${fmt(m)}</span><span class="time-label">Min</span></div>
-                    <div class="time-box"><span class="time-val">${fmt(s)}</span><span class="time-label">Seg</span></div>
+                    <div class="time-box"><span class="time-val">${days}</span><span class="time-label">Días</span></div>
+                    <div class="time-box"><span class="time-val">${h}</span><span class="time-label">Hrs</span></div>
+                    <div class="time-box"><span class="time-val">${m}</span><span class="time-label">Min</span></div>
+                    <div class="time-box"><span class="time-val">${s}</span><span class="time-label">Seg</span></div>
                 `;
             }
-            // Actualizar cada segundo e iniciar inmediatamente
             setInterval(actualizarContador, 1000);
             actualizarContador();
 
-            // -----------------------------------------
-            // 2. Lógica del Reproductor de Música
-            // -----------------------------------------
+            // 2. Música
             const audio = document.getElementById('backgroundMusic');
             const playBtn = document.getElementById('playPauseButton');
-            const titleDisplay = document.getElementById('songTitle');
-            let currentSongIdx = 0;
+            let currentSong = 0;
             let isPlaying = false;
-            let isShuffle = false;
-            let isRepeat = false;
 
-            // Función para cargar una canción
             function loadSong(idx) {
-                currentSongIdx = idx;
-                audio.src = CONFIG.SONGS[currentSongIdx];
-                titleDisplay.textContent = `🎵 Reproduciendo: Canción ${currentSongIdx + 1}`;
-                // Efecto visual de cambio
-                titleDisplay.style.opacity = 0;
-                setTimeout(() => titleDisplay.style.opacity = 1, 200);
+                audio.src = CONFIG.SONGS[idx];
+                document.getElementById('songTitle').textContent = `🎵 Reproduciendo: Canción ${idx + 1}`;
             }
 
-            // Función para reproducir/pausar
-            function togglePlay() {
-                if(!audio.src || audio.ended) loadSong(currentSongIdx);
-                
-                if(audio.paused) {
-                    audio.play().then(() => {
-                        isPlaying = true;
-                        updatePlayButton();
-                    }).catch(e => console.log("Error reproducción:", e));
-                } else {
-                    audio.pause();
-                    isPlaying = false;
-                    updatePlayButton();
-                }
-            }
+            playBtn.onclick = () => {
+                if(!audio.src) loadSong(0);
+                if(isPlaying) audio.pause(); else audio.play();
+                isPlaying = !isPlaying;
+                playBtn.innerHTML = `<i class="fas fa-${isPlaying ? 'pause' : 'play'}"></i>`;
+            };
 
-            // Actualizar icono del botón Play/Pause
-            function updatePlayButton() {
-                playBtn.innerHTML = isPlaying ? 
-                    '<i class="fas fa-pause ps-0"></i>' : 
-                    '<i class="fas fa-play ps-1"></i>';
-                playBtn.classList.toggle('pulse-animation', !isPlaying);
-            }
+            document.getElementById('nextButton').onclick = () => {
+                currentSong = (currentSong + 1) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
 
-            // Funciones de navegación (Siguiente/Anterior)
-            function nextSong() {
-                if(isShuffle) {
-                    // Elegir canción aleatoria distinta a la actual
-                    let newIdx;
-                    do { newIdx = Math.floor(Math.random() * CONFIG.SONGS.length); } 
-                    while (newIdx === currentSongIdx && CONFIG.SONGS.length > 1);
-                    currentSongIdx = newIdx;
-                } else {
-                    currentSongIdx = (currentSongIdx + 1) % CONFIG.SONGS.length;
-                }
-                loadSong(currentSongIdx);
-                if(isPlaying) audio.play();
-            }
+            document.getElementById('prevButton').onclick = () => {
+                currentSong = (currentSong - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
 
-            function prevSong() {
-                 // Si lleva más de 3s reproduciendo, volver al inicio de la canción
-                 if(audio.currentTime > 3) {
-                    audio.currentTime = 0;
-                } else {
-                    // Si no, ir a la canción anterior
-                    currentSongIdx = (currentSongIdx - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length;
-                    loadSong(currentSongIdx);
-                }
-                if(isPlaying) audio.play();
-            }
+            document.getElementById('volumeControl').oninput = (e) => audio.volume = e.target.value;
+            audio.onended = () => document.getElementById('nextButton').click();
 
-            // Event Listeners del Reproductor
-            playBtn.onclick = togglePlay;
-            document.getElementById('nextButton').onclick = nextSong;
-            document.getElementById('prevButton').onclick = prevSong;
+            // 3. Carrusel (LÓGICA ORIGINAL RESTAURADA)
+            const container = document.getElementById('carouselContainer');
+            // Creamos el array de IDs
+            const ids = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
             
-            document.getElementById('volumeControl').oninput = (e) => {
-                audio.volume = e.target.value;
-                // Cambiar icono de volumen según nivel
-                const iconDown = document.querySelector('.fa-volume-down');
-                 if(audio.volume === 0) iconDown.className = 'fas fa-volume-mute text-muted';
-                 else if(audio.volume < 0.5) iconDown.className = 'fas fa-volume-down text-muted';
-                 else iconDown.className = 'fas fa-volume-up text-muted';
-            };
-
-            // Comportamiento al terminar canción
-            audio.onended = () => {
-                if(isRepeat) {
-                    audio.currentTime = 0;
-                    audio.play();
-                } else {
-                    nextSong();
-                }
-            };
-
-            // Botones Shuffle y Repeat
-            document.getElementById('shuffleButton').onclick = function() {
-                isShuffle = !isShuffle;
-                this.classList.toggle('btn-custom-primary', isShuffle);
-                this.classList.toggle('btn-outline-secondary', !isShuffle);
-                if(isShuffle && !isPlaying) nextSong(); // Empezar si se activa shuffle
-            };
-
-            document.getElementById('repeatButton').onclick = function() {
-                isRepeat = !isRepeat;
-                this.classList.toggle('btn-custom-primary', isRepeat);
-                this.classList.toggle('btn-outline-secondary', !isRepeat);
-                // Mostrar pequeño indicador de modo repetición
-                titleDisplay.textContent = isRepeat ? `🔂 Repitiendo: Canción ${currentSongIdx + 1}` : `🎵 Reproduciendo: Canción ${currentSongIdx + 1}`;
-            };
-
-
-            // -----------------------------------------
-            // 3. Lógica del Carrusel de Fotos
-            // -----------------------------------------
-            const carouselContainer = document.getElementById('carouselContainer');
-            const carouselElement = document.getElementById('photoCarousel');
-            const carouselPhrase = document.getElementById('carouselPhrase');
-
-            // Limpiar contenedor inicial (quitando el spinner)
-            carouselContainer.innerHTML = '';
-
-            // Generar array de índices [1, 2, ... TOTAL_IMAGES]
-            const imageIndices = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1);
-            
-            // Mezclar aleatoriamente los índices (Fisher-Yates shuffle simplificado)
-            imageIndices.sort(() => Math.random() - 0.5);
-
-            // Crear los elementos del carrusel
-            imageIndices.forEach((num, index) => {
+            // Inyectamos las fotos con la estructura simple que funcionaba
+            ids.forEach((n, i) => {
                 const div = document.createElement('div');
-                // El primer elemento debe ser 'active'
-                div.className = `carousel-item h-100 ${index === 0 ? 'active' : ''}`;
-                
-                // Usar loading="lazy" para rendimiento y ondragstart="return false" para evitar arrastrar imagen
-                div.innerHTML = `
-                    <img src="${CONFIG.CAROUSEL.IMAGE_PATH}${num}.jpg" 
-                         class="d-block w-100 h-100" 
-                         alt="Recuerdo ${num}" 
-                         loading="lazy" 
-                         ondragstart="return false"
-                         onerror="this.closest('.carousel-item').remove()"> `;
-                carouselContainer.appendChild(div);
+                div.className = `carousel-item ${i === 0 ? 'active' : ''}`;
+                // Eliminamos clases extra que causaban conflicto, dejamos solo la imagen
+                div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" onerror="this.parentElement.remove()">`;
+                container.appendChild(div);
             });
 
-            // Inicializar carrusel de Bootstrap con opciones
-            const carousel = new bootstrap.Carousel(carouselElement, {
-                interval: CONFIG.CAROUSEL.INTERVAL,
-                wrap: true,
-                pause: 'hover' // Pausar si se pasa el mouse por encima
+            let phraseIdx = 0;
+            document.getElementById('photoCarousel').addEventListener('slide.bs.carousel', () => {
+                phraseIdx = (phraseIdx + 1) % CONFIG.PHRASES.length;
+                const p = CONFIG.PHRASES[phraseIdx];
+                document.getElementById('carouselPhrase').textContent = p;
+                if(document.getElementById('mobilePhrase')) document.getElementById('mobilePhrase').textContent = p;
             });
 
-            // Cambiar frases en cada transición del carrusel
-            let currentPhraseIndex = 0;
-            carouselElement.addEventListener('slide.bs.carousel', () => {
-                // Efecto de desvanecimiento para el texto
-                carouselPhrase.style.opacity = 0;
-                setTimeout(() => {
-                    currentPhraseIndex = (currentPhraseIndex + 1) % CONFIG.PHRASES.length;
-                    carouselPhrase.textContent = CONFIG.PHRASES[currentPhraseIndex];
-                    carouselPhrase.style.opacity = 1;
-                }, 300); // Coincide con mitad de transición CSS
-            });
-
-
-            // -----------------------------------------
-            // 4. Elementos Flotantes (Corazones/Mariposas) - MEJORADO
-            // -----------------------------------------
+            // 4. Elementos Flotantes (Corazones y Mariposas GRANDES)
             function createFloatingElement() {
                 const el = document.createElement('div');
                 el.classList.add('floating-element');
-                // Símbolos románticos variados
-                const symbols = ['❤', '💖', '💕', '💗', '💓', '🦋', '✨', '🌸'];
+                // Símbolos variados
+                const symbols = ['❤', '💖', '💕', '💗', '🦋', '✨', '🌸']; 
                 el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
                 
-                // Posición horizontal aleatoria
                 el.style.left = Math.random() * 95 + 'vw';
-                
-                // --- CAMBIOS AQUÍ PARA HACERLOS MÁS GRANDES Y DINÁMICOS ---
-                // Duración de la animación entre 6s y 13s (más lenta si son grandes)
-                const duration = Math.random() * 7 + 6;
-                el.style.animationDuration = duration + 's';
-                
-                // Tamaño entre 25px y 55px (mucho más grandes que antes)
-                const size = Math.random() * 30 + 25;
-                el.style.fontSize = size + 'px';
-                
-                // Opacidad variable
-                el.style.opacity = Math.random() * 0.6 + 0.4; 
+                // Más lentos para que se aprecien mejor al ser grandes
+                el.style.animationDuration = Math.random() * 8 + 6 + 's';
+                // TAMAÑO AUMENTADO: Entre 30px y 60px
+                el.style.fontSize = Math.random() * 30 + 30 + 'px';
+                el.style.opacity = Math.random() * 0.5 + 0.4;
                 
                 document.body.appendChild(el);
-                
-                // Eliminar elemento al terminar su animación para no saturar la memoria
-                setTimeout(() => {
-                    if(document.body.contains(el)) el.remove();
-                }, duration * 1000 + 100);
+                setTimeout(() => el.remove(), 14000);
             }
-            
-            // --- CAMBIO DE FRECUENCIA ---
-            // Generar elementos cada 250ms (4 por segundo) en lugar de 500ms
-            // Esto hace la página mucho más dinámica
-            setInterval(createFloatingElement, 250); 
-            // Crear algunos iniciales de golpe
-            for(let i=0; i<10; i++) setTimeout(createFloatingElement, i*100);
+            // Frecuencia alta para que se vea dinámico
+            setInterval(createFloatingElement, 300);
 
-            // -----------------------------------------
-            // 5. Lógica de Acceso (Login)
-            // -----------------------------------------
-            const loginScreen = document.getElementById('loginScreen');
-            const passwordInput = document.getElementById('passwordInput');
-            const loginBtn = document.getElementById('loginBtn');
-            const errorMsg = document.getElementById('errorMsg');
-            const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            // 5. Acceso (Password: 1512)
+            const lBtn = document.getElementById('loginBtn');
+            const pInp = document.getElementById('passwordInput');
+            const lScr = document.getElementById('loginScreen');
 
-            function attemptLogin() {
-                if(passwordInput.value === CONFIG.PASSWORD) {
-                    // Login exitoso
-                    errorMsg.style.display = 'none';
-                    passwordInput.blur(); // Quitar foco (oculta teclado en móvil)
-                    
-                    // Efecto de salida
-                    loginScreen.classList.add('login-hidden');
-                    
+            const login = () => {
+                if(pInp.value === "1512") {
+                    lScr.classList.add('login-hidden');
                     setTimeout(() => {
-                        loginScreen.remove(); // Eliminar del DOM
-                        welcomeModal.show(); // Mostrar modal de bienvenida
-                        // Lanzar confeti de celebración
-                        confetti({ 
-                            particleCount: 180, 
-                            spread: 100, 
-                            origin: { y: 0.6 },
-                            colors: ['#ff3366', '#ff99cc', '#ffffff']
-                        });
-                        // Intentar iniciar música automáticamente (puede ser bloqueado por navegador)
-                        playBtn.click(); 
-                    }, 800); // Esperar a que termine la transición CSS
+                        lScr.remove();
+                        new bootstrap.Modal(document.getElementById('welcomeModal')).show();
+                        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+                        playBtn.click(); // Inicia música al entrar
+                    }, 1000);
                 } else {
-                    // Login fallido
-                    errorMsg.style.display = 'block';
-                    // Efecto de vibración/sacudida en el input
-                    passwordInput.classList.add('is-invalid', 'animate__animated', 'animate__shakeX');
-                    setTimeout(() => {
-                         passwordInput.classList.remove('is-invalid', 'animate__animated', 'animate__shakeX');
-                         passwordInput.value = '';
-                         passwordInput.focus();
-                    }, 800);
-                }
-            }
-
-            // Eventos para el login
-            loginBtn.onclick = attemptLogin;
-            passwordInput.onkeypress = (e) => { 
-                if(e.key === 'Enter') {
-                    e.preventDefault(); // Evitar submit de formulario si lo hubiera
-                    attemptLogin(); 
+                    document.getElementById('errorMsg').style.display = 'block';
+                    pInp.classList.add('is-invalid');
+                    setTimeout(() => pInp.classList.remove('is-invalid'), 500);
+                    pInp.value = "";
                 }
             };
-            // Enfocar input al cargar (útil en desktop)
-            setTimeout(() => passwordInput.focus(), 500);
+            lBtn.onclick = login;
+            pInp.onkeypress = (e) => { if(e.key === 'Enter') login(); };
+            setTimeout(() => pInp.focus(), 600);
 
-            // -----------------------------------------
-            // 6. Interacciones Adicionales
-            // -----------------------------------------
-            
-            // Mostrar/Ocultar Carta
-            const cartaBtn = document.getElementById('verCartaBtn');
-            const cartaContent = document.getElementById('cartaContent');
-            cartaBtn.onclick = function() {
-                // Verificar si está visible comprobando el estilo display
-                const isHidden = window.getComputedStyle(cartaContent).display === 'none';
-                
-                if(isHidden) {
-                    cartaContent.style.display = 'block';
-                    // Pequeño timeout para permitir que el navegador renderice el bloque antes de animar la opacidad
-                    setTimeout(() => {
-                        cartaContent.classList.add('fade-in'); 
-                        this.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Ocultar carta 🙈';
-                        // Scroll suave hacia la carta
-                        cartaContent.scrollIntoView({behavior: 'smooth', block: 'start'});
-                    }, 10);
-                } else {
-                    cartaContent.classList.remove('fade-in');
-                    // Esperar a que termine la transición de opacidad (si la hubiera) para ocultar
-                    setTimeout(() => {
-                         cartaContent.style.display = 'none';
-                         this.innerHTML = '<i class="fas fa-envelope me-2"></i>Ver nuestra carta de amor 💌';
-                    }, 300);
-                }
+            // 6. Carta
+            document.getElementById('verCartaBtn').onclick = function() {
+                const c = document.getElementById('cartaContent');
+                const isH = c.style.display === 'none';
+                c.style.display = isH ? 'block' : 'none';
+                this.textContent = isH ? 'Ocultar carta 🙈' : 'Ver nuestra carta de amor 💌';
             };
 
-            // Botón de Magia Final (Lanza confeti de corazones)
-            document.getElementById('loveButton').onclick = function() {
-                // Animación del botón al hacer click
-                this.classList.remove('pulse-animation');
-                void this.offsetWidth; // Forzar reflow
-                this.classList.add('pulse-animation');
-
-                confetti({ 
-                    particleCount: 80, 
-                    spread: 180, 
-                    origin: { y: 0.8 },
-                    shapes: ['heart'], 
-                    colors: ['#ff3366', '#ff0066', '#ffffff'],
-                    scalar: 2 // Corazones más grandes
-                });
-                 // Segunda explosión pequeña un poco después
-                setTimeout(() => {
-                     confetti({ particleCount: 40, spread: 100, origin: { y: 0.7 }, shapes: ['heart'], colors: ['#ff99cc'] });
-                }, 400);
+            // 7. Love Button
+            document.getElementById('loveButton').onclick = () => {
+                confetti({ particleCount: 100, spread: 160, shapes: ['heart'], colors: ['#ff4d6d', '#ffffff'], scalar: 2 });
             };
         });
     </script>
