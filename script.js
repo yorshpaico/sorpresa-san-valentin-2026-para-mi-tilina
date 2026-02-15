@@ -429,5 +429,51 @@ document.getElementById('loveButton').addEventListener('click', () => {
         particleCount: 10,
         scalar: 4
     });
+    // === LÓGICA DEL CANDADO DE AMOR ===
+document.addEventListener('DOMContentLoaded', () => {
+    const loginScreen = document.getElementById('loginScreen');
+    const passInput = document.getElementById('passwordInput');
+    const loginBtn = document.getElementById('loginBtn');
+    const errorMsg = document.getElementById('errorMsg');
+    const music = document.getElementById('backgroundMusic');
+
+    // LA CONTRASEÑA (Cámbiala aquí si quieres)
+    const SECRET_CODE = "1512"; 
+
+    function checkLogin() {
+        if(passInput.value === SECRET_CODE) {
+            // 1. Ocultar pantalla de bloqueo
+            loginScreen.classList.add('login-hidden');
+            
+            // 2. Iniciar música automáticamente
+            music.play().catch(e => console.log("Navegador bloqueó audio auto:", e));
+            
+            // 3. Lanzar confeti de celebración (si tienes la librería)
+            if(window.confetti) {
+                confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            }
+            
+            // 4. Eliminar el bloqueo del DOM después de la animación
+            setTimeout(() => {
+                loginScreen.remove();
+            }, 1000);
+        } else {
+            // Contraseña incorrecta
+            errorMsg.style.display = 'block';
+            passInput.value = '';
+            passInput.focus();
+            
+            // Animación de "vibración"
+            passInput.classList.add('is-invalid');
+            setTimeout(() => passInput.classList.remove('is-invalid'), 500);
+        }
+    }
+
+    // Eventos (Click en botón o Enter en teclado)
+    loginBtn.addEventListener('click', checkLogin);
+    passInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkLogin();
+    });
+});
 });
 });
