@@ -6,7 +6,7 @@
     <title>Para Nini - 2 Años y 2 Meses 💖</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
     
-    <!-- Dependencias: Bootstrap y FontAwesome -->
+    <!-- Dependencias -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     
@@ -14,17 +14,16 @@
         :root {
             --primary: #ff4d6d;
             --secondary: #ff758c;
-            --accent: #ff85a1;
+            --accent: #ff0080;
             --dark: #4a4e69;
-            --light: #f8f9fa;
-            --glass: rgba(255, 255, 255, 0.82);
-            --shadow: 0 15px 45px rgba(255, 77, 109, 0.3);
-            /* Degradado más vivo y romántico */
+            --glass: rgba(255, 255, 255, 0.85);
+            --shadow: 0 15px 45px rgba(255, 0, 128, 0.35);
+            /* Degradado más vivo, romántico y vibrante */
             --bg-gradient: linear-gradient(-45deg, #ff4e50, #f9d423, #ff0080, #7928ca);
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             background: var(--bg-gradient);
             background-size: 400% 400%;
             animation: gradientAnimation 12s ease infinite;
@@ -50,22 +49,21 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 1px, transparent 1px),
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 2px, transparent 2px),
-                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.4) 1.5px, transparent 1.5px),
-                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.3) 1px, transparent 1px),
-                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.4) 2px, transparent 2px);
-            background-size: 200px 200px;
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.6) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 2px, transparent 2px),
+                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.6) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.5) 1px, transparent 1px);
+            background-size: 250px 250px;
             animation: twinkling 3s ease-in-out infinite alternate;
             z-index: -2;
         }
 
         @keyframes twinkling {
             from { opacity: 0.3; transform: scale(1); }
-            to { opacity: 0.8; transform: scale(1.1); }
+            to { opacity: 0.9; transform: scale(1.1); }
         }
 
-        /* Pantalla de Login */
+        /* Pantalla de Login (Seguridad) */
         .login-overlay {
             position: fixed;
             top: 0;
@@ -92,8 +90,7 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             max-width: 420px;
             width: 90%;
-            transform: scale(1);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
         }
 
         .login-hidden {
@@ -101,9 +98,10 @@
             visibility: hidden;
             pointer-events: none;
             transform: scale(0.9);
+            transition: all 0.8s ease;
         }
 
-        /* Contador de Tiempo Estilizado */
+        /* Contador */
         .time-box {
             background: rgba(255, 255, 255, 0.95);
             padding: 18px;
@@ -115,18 +113,12 @@
             transition: all 0.3s ease;
         }
 
-        .time-box:hover { 
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow);
-        }
-
         .time-val {
             display: block;
             font-size: 2.2rem;
             font-weight: 900;
             color: var(--primary);
             line-height: 1;
-            margin-bottom: 5px;
         }
 
         .time-label {
@@ -137,7 +129,7 @@
             font-weight: 700;
         }
 
-        /* Carrusel Mejorado */
+        /* Carrusel */
         .carousel-inner {
             border-radius: 30px;
             background: rgba(0, 0, 0, 0.2);
@@ -146,7 +138,6 @@
             border: 5px solid rgba(255, 255, 255, 0.3);
         }
 
-        .carousel-item { height: 100%; }
         .carousel-item img {
             height: 100%;
             width: 100%;
@@ -164,17 +155,15 @@
             bottom: 35px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             border: 1.5px solid var(--primary);
-            font-weight: 500;
         }
 
-        /* Corazones Flotantes Continuos */
+        /* Corazones Flotantes */
         .floating-heart {
             position: fixed;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             pointer-events: none;
             z-index: -1;
             animation: floatAnimation linear forwards;
-            font-family: Arial, sans-serif;
         }
 
         @keyframes floatAnimation {
@@ -184,34 +173,27 @@
             100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
-        .pulse-animation {
-            animation: pulse 2.5s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); filter: brightness(1); }
-            50% { transform: scale(1.08); filter: brightness(1.1); }
-        }
-
         .music-player, .card {
             background: var(--glass);
             backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
             border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: var(--shadow);
+            border: none;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.3);
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
 
         @media (max-width: 768px) {
             header h1 { font-size: 2.2rem; }
-            .carousel-inner { height: 55vh; min-height: 350px; }
+            .carousel-inner { height: 50vh; min-height: 350px; }
             .time-box { min-width: 80px; padding: 12px; }
-            .time-val { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -219,14 +201,15 @@
 
     <!-- PANTALLA DE ACCESO (PASSWORD: 1512) -->
     <div id="loginScreen" class="login-overlay">
-        <div class="login-content text-center">
+        <div class="login-content">
             <div class="mb-4">
                 <span style="font-size: 5rem;">💖</span>
             </div>
             <h2 class="mb-3 fw-bold" style="color: var(--primary);">Bienvenida, Nicol</h2>
             <p class="mb-4 text-muted">Escribe la fecha de nuestro aniversario (DDMM) para abrir tu regalo:</p>
             <div class="d-flex justify-content-center gap-2 mb-3">
-                <input type="password" id="passwordInput" class="form-control text-center fs-3 border-danger-subtle" style="max-width: 160px; border-radius: 15px;" placeholder="****" maxlength="4" autocomplete="off">
+                <!-- QUITADO EL PLACEHOLDER 1512 PARA QUE NO HAYA PISTAS -->
+                <input type="password" id="passwordInput" class="form-control text-center fs-3" style="max-width: 160px; border-radius: 15px;" placeholder="****" maxlength="4" autocomplete="off">
                 <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle shadow pulse-animation">
                     <i class="fas fa-heart"></i>
                 </button>
@@ -238,18 +221,16 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="container py-4">
         <header class="text-center py-5">
-            <h1 class="display-3 fw-bold text-white">Nuestro Amor Eterno 💖</h1>
-            <p class="lead text-white fw-light fs-4" style="opacity: 0.9;">Felicidades por estos 2 años y 2 meses maravillosos.</p>
+            <h1 class="display-3 fw-bold text-white" style="text-shadow: 2px 2px 15px rgba(0,0,0,0.3);">Nuestro Amor Eterno 💖</h1>
+            <p class="lead text-white fw-light fs-4">Felicidades por estos 2 años y 2 meses maravillosos.</p>
         </header>
 
-        <!-- CONTADOR -->
         <section class="mb-5 text-center">
             <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-2 gap-md-4">
-                <!-- Inyectado por JS -->
+                <!-- JS Inyecta el tiempo -->
             </div>
         </section>
 
-        <!-- MÚSICA -->
         <section id="musica" class="mb-5">
             <div class="music-player text-center p-4">
                 <h6 id="songTitle" class="mb-3 text-muted fst-italic">🎵 Pulsa Play para nuestra música...</h6>
@@ -262,16 +243,11 @@
                     <button id="repeatButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-redo"></i></button>
                 </div>
                 <div class="volume-control w-75 mx-auto">
-                    <div class="d-flex align-items-center gap-2">
-                        <i class="fas fa-volume-down text-muted"></i>
-                        <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
-                        <i class="fas fa-volume-up text-muted"></i>
-                    </div>
+                    <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
                 </div>
             </div>
         </section>
 
-        <!-- CARRUSEL -->
         <section id="carrusel" class="mb-5">
             <div id="photoCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
                 <div class="carousel-inner" id="carouselContainer">
@@ -292,23 +268,22 @@
             </div>
         </section>
 
-        <!-- CARTA -->
         <section class="text-center mb-5">
             <button class="btn btn-light btn-lg shadow px-5 rounded-pill fw-bold text-danger border-2 border-danger" id="verCartaBtn">Ver nuestra carta de amor 💌</button>
-            <div id="cartaContent" class="card mt-4 p-4 text-start" style="display:none; animation: fadeIn 0.8s ease-out;">
+            <div id="cartaContent" class="card mt-4 p-4 text-start" style="display:none; transition: 0.5s;">
                 <div class="card-body">
                     <h3 class="card-title text-center mb-4 text-danger fw-bold">Mi amada Nini 🌹</h3>
                     <p class="fs-5">Hoy celebramos <strong>2 años y 2 meses</strong> de una historia que parece sacada de un cuento.</p>
-                    <p class="fs-5">Desde aquel 15 de diciembre de 2023, mi vida se llenó de luz. Eres mi refugio, mi mejor amiga y la persona con la que quiero compartir cada amanecer.</p>
-                    <p class="fs-5">Hemos construido algo hermoso y real. Gracias por tu paciencia, tus risas y por amarme tal como soy. Eres mi presente y mi futuro asegurado.</p>
-                    <p class="text-end mt-4 fs-4 fw-bold text-danger">Con todo mi ser,<br>Tu Tilín, Pedrito. ❤️</p>
+                    <p class="fs-5">Desde aquel 15 de diciembre de 2023, mi vida se llenó de luz. Eres mi refugio y mi mejor amiga.</p>
+                    <p class="fs-5">Gracias por amarme tal como soy. Eres mi presente y mi futuro. Te amo mucho.</p>
+                    <p class="text-end mt-4 fs-4 fw-bold text-danger">Con todo mi amor,<br>Tu Tilín, Pedrito. ❤️</p>
                 </div>
             </div>
         </section>
 
         <div class="text-center mb-5">
             <button id="loveButton" class="btn btn-danger btn-lg rounded-pill shadow-lg pulse-animation px-5 py-3 fs-4 fw-bold">
-                ¡Presiona para más magia! ✨💖
+                ¡Más Magia! ✨💖
             </button>
         </div>
     </main>
@@ -317,217 +292,161 @@
         <small class="opacity-75">Hecho con el alma ❤️ por Pedrito para Nicol &bull; 2026</small>
     </footer>
 
-    <!-- MODAL INICIAL -->
+    <!-- MODAL DE BIENVENIDA -->
     <div class="modal fade" id="welcomeModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
                 <h2 class="mb-3 text-danger fw-bold">¡Hola amor mío! 💘</h2>
                 <p class="fs-5">He preparado esta sorpresa para que nunca olvides lo mucho que te amo.</p>
-                <p class="text-muted">Sube el volumen y prepárate para sonreír...</p>
-                <button type="button" class="btn btn-danger btn-lg rounded-pill px-5 py-2 mt-3" data-bs-dismiss="modal">Entrar al Álbum 😍</button>
+                <button type="button" class="btn btn-danger btn-lg rounded-pill px-5 py-2 mt-3" data-bs-dismiss="modal">Entrar 😍</button>
             </div>
         </div>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // === CONFIGURACIÓN ===
             const CONFIG = {
                 START_DATE: new Date('2023-12-15T00:00:00'),
                 CAROUSEL: { INTERVAL: 4500, TOTAL_IMAGES: 74, IMAGE_PATH: './img/photo' },
                 PHRASES: [
-                    "Eres la razón por la que sonrío cada día.", "Tu amor llena mi vida de colores vivos.", "Cada momento contigo es un regalo del cielo.",
-                    "Eres mi sol constante en los días nublados.", "Tu risa es la melodía más dulce que conozco.", "A tu lado, todo es perfecto y real.",
-                    "Eres mi hoy, mi mañana y mi eternidad.", "Amo cada pequeño detalle que te hace única.", "Gracias por ser mi paz en medio del caos.",
-                    "Eres mi vida, mi blanquita hermosa y valiente.", "No hay lugar mejor en el mundo que tus brazos.", "Agradezco al destino cada segundo por tenerte.",
-                    "Nuestra historia de amor es mi capítulo favorito."
+                    "Eres la razón por la que sonrío cada día.", "Tu amor llena mi vida de colores vivos.", "Cada momento contigo es un regalo.",
+                    "Eres mi sol constante.", "Tu risa es la melodía más dulce.", "A tu lado, todo es perfecto.",
+                    "Eres mi hoy, mi mañana y mi siempre.", "Amo cada pequeño detalle de ti.", "Gracias por ser mi paz.",
+                    "Nuestra historia de amor es mi favorita."
                 ],
                 SONGS: Array.from({length: 28}, (_, i) => `audio/cancion${i+1}.mp3`)
             };
 
-            // 1. Lógica del Contador Preciso
-            class TimeCounter {
-                constructor(startDate, containerId) {
-                    this.startDate = startDate;
-                    this.container = document.getElementById(containerId);
-                    this.start();
-                }
-                render() {
-                    const now = new Date();
-                    let years = now.getFullYear() - this.startDate.getFullYear();
-                    let months = now.getMonth() - this.startDate.getMonth();
-                    let days = now.getDate() - this.startDate.getDate();
-                    
-                    if (days < 0) { 
-                        months--; 
-                        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); 
-                        days += lastMonth.getDate(); 
-                    }
-                    if (months < 0) { 
-                        years--; 
-                        months += 12; 
-                    }
-                    
-                    const diff = now - this.startDate;
-                    const h = Math.floor((diff % 86400000) / 3600000);
-                    const m = Math.floor((diff % 3600000) / 60000);
-                    const s = Math.floor((diff % 60000) / 1000);
+            // 1. Contador
+            function actualizarContador() {
+                const now = new Date();
+                const startDate = CONFIG.START_DATE;
+                let years = now.getFullYear() - startDate.getFullYear();
+                let months = now.getMonth() - startDate.getMonth();
+                let days = now.getDate() - startDate.getDate();
+                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
+                if (months < 0) { years--; months += 12; }
+                const diff = now - startDate;
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('contador-amor').innerHTML = `
+                    <div class="time-box"><span class="time-val">${years}</span><span class="time-label">Años</span></div>
+                    <div class="time-box"><span class="time-val">${months}</span><span class="time-label">Meses</span></div>
+                    <div class="time-box"><span class="time-val">${days}</span><span class="time-label">Días</span></div>
+                    <div class="time-box"><span class="time-val">${h}</span><span class="time-label">Hrs</span></div>
+                    <div class="time-box"><span class="time-val">${m}</span><span class="time-label">Min</span></div>
+                    <div class="time-box"><span class="time-val">${s}</span><span class="time-label">Seg</span></div>
+                `;
+            }
+            setInterval(actualizarContador, 1000);
+            actualizarContador();
 
-                    this.container.innerHTML = `
-                        <div class="time-box"><span class="time-val">${years}</span><span class="time-label">Años</span></div>
-                        <div class="time-box"><span class="time-val">${months}</span><span class="time-label">Meses</span></div>
-                        <div class="time-box"><span class="time-val">${days}</span><span class="time-label">Días</span></div>
-                        <div class="time-box"><span class="time-val">${h}</span><span class="time-label">Hrs</span></div>
-                        <div class="time-box"><span class="time-val">${m}</span><span class="time-label">Min</span></div>
-                        <div class="time-box"><span class="time-val">${s}</span><span class="time-label">Seg</span></div>
-                    `;
-                }
-                start() { this.render(); setInterval(() => this.render(), 1000); }
+            // 2. Música
+            const audio = document.getElementById('backgroundMusic');
+            const playBtn = document.getElementById('playPauseButton');
+            let currentSong = 0;
+            let isPlaying = false;
+
+            function loadSong(idx) {
+                audio.src = CONFIG.SONGS[idx];
+                document.getElementById('songTitle').textContent = `🎵 Reproduciendo: Canción ${idx + 1}`;
             }
 
-            // 2. Lógica del Reproductor de Música
-            class MusicPlayer {
-                constructor() {
-                    this.audio = document.getElementById('backgroundMusic');
-                    this.playBtn = document.getElementById('playPauseButton');
-                    this.title = document.getElementById('songTitle');
-                    this.idx = 0;
-                    this.isPlaying = false;
-                    this.isShuffling = false;
-                    this.init();
-                }
-                init() {
-                    this.playBtn.onclick = () => this.toggle();
-                    document.getElementById('nextButton').onclick = () => this.next();
-                    document.getElementById('prevButton').onclick = () => this.prev();
-                    document.getElementById('volumeControl').oninput = (e) => this.audio.volume = e.target.value;
-                    document.getElementById('shuffleButton').onclick = (e) => {
-                        this.isShuffling = !this.isShuffling;
-                        e.currentTarget.classList.toggle('btn-danger', this.isShuffling);
-                    };
-                    document.getElementById('repeatButton').onclick = (e) => {
-                        this.audio.loop = !this.audio.loop;
-                        e.currentTarget.classList.toggle('btn-danger', this.audio.loop);
-                    };
-                    this.audio.onended = () => { if(!this.audio.loop) this.next(); };
-                }
-                load(i) {
-                    this.idx = i;
-                    this.audio.src = CONFIG.SONGS[i];
-                    this.title.textContent = `🎵 Reproduciendo: Canción ${i + 1}`;
-                }
-                toggle() {
-                    if(!this.audio.src) this.load(0);
-                    this.isPlaying ? this.audio.pause() : this.audio.play();
-                    this.isPlaying = !this.isPlaying;
-                    this.playBtn.innerHTML = `<i class="fas fa-${this.isPlaying ? 'pause' : 'play'}"></i>`;
-                }
-                next() {
-                    let n = this.isShuffling ? Math.floor(Math.random() * CONFIG.SONGS.length) : (this.idx + 1) % CONFIG.SONGS.length;
-                    this.load(n); this.audio.play(); this.isPlaying = true; this.playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
-                }
-                prev() { this.idx = (this.idx - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length; this.load(this.idx); this.audio.play(); }
-            }
+            playBtn.onclick = () => {
+                if(!audio.src) loadSong(0);
+                if(isPlaying) audio.pause(); else audio.play();
+                isPlaying = !isPlaying;
+                playBtn.innerHTML = `<i class="fas fa-${isPlaying ? 'pause' : 'play'}"></i>`;
+            };
 
-            // 3. Lógica del Carrusel Dinámico
-            class CarouselManager {
-                constructor() {
-                    this.cont = document.getElementById('carouselContainer');
-                    this.pEl = document.getElementById('carouselPhrase');
-                    this.mEl = document.getElementById('mobilePhrase');
-                    this.idx = 0;
-                    this.init();
-                }
-                init() {
-                    const ids = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
-                    ids.forEach((n, i) => {
-                        const div = document.createElement('div');
-                        div.className = `carousel-item ${i === 0 ? 'active' : ''}`;
-                        div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" loading="eager" onerror="this.parentElement.remove()">`;
-                        this.cont.appendChild(div);
-                    });
-                    document.getElementById('photoCarousel').addEventListener('slide.bs.carousel', (e) => {
-                        this.idx = (this.idx + (e.direction === 'left' ? 1 : -1) + CONFIG.PHRASES.length) % CONFIG.PHRASES.length;
-                        const p = CONFIG.PHRASES[this.idx];
-                        this.pEl.style.opacity = 0;
-                        setTimeout(() => { 
-                            this.pEl.textContent = p; 
-                            if(this.mEl) this.mEl.textContent = p; 
-                            this.pEl.style.opacity = 1; 
-                        }, 250);
-                    });
-                    this.pEl.textContent = CONFIG.PHRASES[0];
-                    if(this.mEl) this.mEl.textContent = CONFIG.PHRASES[0];
-                }
-            }
+            document.getElementById('nextButton').onclick = () => {
+                currentSong = (currentSong + 1) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
 
-            // 4. Corazones Flotantes Continuos (VIDA AL FONDO)
-            function createFloatingHeart() {
+            document.getElementById('prevButton').onclick = () => {
+                currentSong = (currentSong - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
+
+            document.getElementById('volumeControl').oninput = (e) => audio.volume = e.target.value;
+            audio.onended = () => document.getElementById('nextButton').click();
+
+            // 3. Carrusel
+            const container = document.getElementById('carouselContainer');
+            const ids = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
+            ids.forEach((n, i) => {
+                const div = document.createElement('div');
+                div.className = `carousel-item ${i === 0 ? 'active' : ''}`;
+                div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" onerror="this.parentElement.remove()">`;
+                container.appendChild(div);
+            });
+
+            let phraseIdx = 0;
+            document.getElementById('photoCarousel').addEventListener('slide.bs.carousel', () => {
+                phraseIdx = (phraseIdx + 1) % CONFIG.PHRASES.length;
+                const p = CONFIG.PHRASES[phraseIdx];
+                document.getElementById('carouselPhrase').textContent = p;
+                if(document.getElementById('mobilePhrase')) document.getElementById('mobilePhrase').textContent = p;
+            });
+
+            // 4. Corazones Flotantes (MAGIA VIVA)
+            function createHeart() {
                 const heart = document.createElement('div');
                 heart.classList.add('floating-heart');
                 heart.innerHTML = ['❤', '💖', '💕', '💗'][Math.floor(Math.random() * 4)];
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 6 + 6 + 's';
+                heart.style.animationDuration = Math.random() * 5 + 5 + 's';
                 heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                heart.style.opacity = Math.random() * 0.4 + 0.2;
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
                 document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 12000);
+                setTimeout(() => heart.remove(), 10000);
             }
-            setInterval(createFloatingHeart, 600); // Crea un corazón cada 0.6 seg
+            setInterval(createHeart, 600);
 
-            // Inicialización de componentes
-            new TimeCounter(CONFIG.START_DATE, 'contador-amor');
-            const player = new MusicPlayer();
-            new CarouselManager();
-
-            // Lógica de Acceso (Password: 1512)
+            // 5. Acceso (Password: 1512)
             const lBtn = document.getElementById('loginBtn');
             const pInp = document.getElementById('passwordInput');
             const lScr = document.getElementById('loginScreen');
 
-            const doLogin = () => {
+            const login = () => {
                 if(pInp.value === "1512") {
                     lScr.classList.add('login-hidden');
                     setTimeout(() => {
                         lScr.remove();
                         new bootstrap.Modal(document.getElementById('welcomeModal')).show();
-                        confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, colors: ['#ff0000', '#ff85a1', '#ffffff'] });
-                        player.toggle(); // Audio inicia tras la interacción
+                        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+                        playBtn.click(); // Inicia música al entrar
                     }, 1000);
                 } else {
                     document.getElementById('errorMsg').style.display = 'block';
                     pInp.classList.add('is-invalid');
                     setTimeout(() => pInp.classList.remove('is-invalid'), 500);
-                    pInp.value = '';
+                    pInp.value = "";
                 }
             };
+            lBtn.onclick = login;
+            pInp.onkeypress = (e) => { if(e.key === 'Enter') login(); };
+            setTimeout(() => pInp.focus(), 600);
 
-            lBtn.onclick = doLogin;
-            pInp.onkeypress = (e) => { if(e.key === 'Enter') doLogin(); };
-            setTimeout(() => pInp.focus(), 800);
-
-            // Botón de Carta
+            // 6. Carta
             document.getElementById('verCartaBtn').onclick = function() {
                 const c = document.getElementById('cartaContent');
                 const isH = c.style.display === 'none';
                 c.style.display = isH ? 'block' : 'none';
                 this.textContent = isH ? 'Ocultar carta 🙈' : 'Ver nuestra carta de amor 💌';
-                if(isH) c.scrollIntoView({ behavior: 'smooth' });
             };
 
-            // Botón Lluvia de Amor (Confetti)
+            // 7. Love Button
             document.getElementById('loveButton').onclick = () => {
-                confetti({ 
-                    particleCount: 100, 
-                    spread: 160, 
-                    shapes: ['heart'], 
-                    colors: ['#ff4757', '#ff6b81', '#ffffff'],
-                    scalar: 2
-                });
+                confetti({ particleCount: 100, spread: 160, shapes: ['heart'], colors: ['#ff4d6d', '#ffffff'] });
             };
         });
     </script>
