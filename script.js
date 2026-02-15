@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const CONFIG = {
         START_DATE: new Date('2023-12-15T00:00:00'), // FECHA DE INICIO
         CAROUSEL: { 
-            TOTAL_IMAGES: 20, // ¡CAMBIA ESTO AL NÚMERO REAL DE FOTOS QUE TENGAS!
+            TOTAL_IMAGES: 100, // ¡CAMBIA ESTO AL NÚMERO REAL DE FOTOS QUE TENGAS!
             PATH: './img/photo' // Asegúrate que tus fotos sean photo1.jpg, photo2.jpg...
         },
         SONGS: [
