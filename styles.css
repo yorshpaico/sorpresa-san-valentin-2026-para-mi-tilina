@@ -137,3 +137,13 @@ body {
     font-size: 1.1rem;
     line-height: 1.8;
 }
+/* === CORRECCIÓN DE VELOCIDAD === */
+.carousel-item {
+    transition: transform 0.2s ease-in-out !important; /* Más rápido */
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+}
