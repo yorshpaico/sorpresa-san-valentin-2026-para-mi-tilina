@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // === CLASE CARRUSEL (TU LÓGICA) ===
+ // === CLASE CARRUSEL OPTIMIZADA ===
     class Carousel {
         constructor(elements) {
             this.elements = elements;
@@ -280,11 +280,13 @@ document.addEventListener("DOMContentLoaded", () => {
         async initialize() {
             await this.loadImages();
             this.initializeCarousel();
-            this.updatePhrase();
+            // Mostrar primera frase sin esperar al slide
+            this.updatePhrase('next'); 
         }
 
         async loadImages() {
             const shuffledIndices = this.getShuffledImageIndices();
+            // Mapeamos para crear los elementos
             const carouselItems = shuffledIndices.map((imageIndex, i) => this.createCarouselItem(imageIndex, i === 0));
             this.elements.carouselInner.append(...carouselItems);
         }
@@ -297,34 +299,69 @@ document.addEventListener("DOMContentLoaded", () => {
         createCarouselItem(imageIndex, isActive) {
             const div = document.createElement("div");
             div.className = `carousel-item${isActive ? ' active' : ''}`;
+            
             const img = document.createElement("img");
-            // NOTA IMPORTANTE: Asegúrate de que las fotos se llamen photo1.jpg, photo2.jpg...
             img.src = `${CONFIG.CAROUSEL.IMAGE_PATH}${imageIndex}.jpg`;
             img.alt = `Recuerdo ${imageIndex}`;
-            img.loading = "lazy";
+            
+            // CAMBIO: Quitamos loading="lazy" para que responda más rápido al pasar fotos
+            // Si son muchas fotos y pesa mucho, el navegador las gestionará, 
+            // pero para la experiencia de usuario rápida, mejor que carguen normal.
             img.className = "d-block w-100 img-fluid";
-            img.onerror = function() { this.parentElement.style.display = "none"; }; // Ocultar si falla
+            
+            // Manejo de error por si falta una foto
+            img.onerror = function() { this.parentElement.style.display = "none"; }; 
+            
             div.appendChild(img);
             return div;
         }
 
         initializeCarousel() {
-            new bootstrap.Carousel(this.elements.carousel, {
+            // Inicializamos Bootstrap Carousel
+            const bsCarousel = new bootstrap.Carousel(this.elements.carousel, {
                 interval: CONFIG.CAROUSEL.INTERVAL,
-                pause: false
+                pause: false, // No pausar si el mouse está encima
+                wrap: true,   // Permitir que de la última pase a la primera
+                touch: true   // Permitir deslizar con el dedo en celular
             });
-            this.elements.carousel.addEventListener("slide.bs.carousel", () => this.updatePhrase());
+
+            // Escuchamos el evento de deslizar para cambiar la frase
+            this.elements.carousel.addEventListener("slide.bs.carousel", (event) => {
+                // event.direction nos dice 'left' (siguiente) o 'right' (anterior)
+                // Ojo: En Bootstrap 'left' suele ser ir a next y 'right' a prev.
+                this.updatePhrase(event.direction);
+            });
         }
 
-        updatePhrase() {
+        updatePhrase(direction) {
+            // Lógica inteligente para las frases
+            if (direction === 'right') {
+                // Si vamos para atrás, restamos al índice
+                this.currentPhraseIndex--;
+                if (this.currentPhraseIndex < 0) {
+                    this.currentPhraseIndex = CONFIG.PHRASES.length - 1;
+                }
+            } else {
+                // Si vamos para adelante (o carga inicial), sumamos
+                this.currentPhraseIndex = (this.currentPhraseIndex + 1) % CONFIG.PHRASES.length;
+            }
+
             const phrase = CONFIG.PHRASES[this.currentPhraseIndex];
-            if (this.elements.phraseElement) this.elements.phraseElement.textContent = phrase;
-            if (this.elements.mobilePhrase) this.elements.mobilePhrase.textContent = phrase;
             
-            this.currentPhraseIndex = (this.currentPhraseIndex + 1) % CONFIG.PHRASES.length;
+            // Actualizar textos con pequeña animación de opacidad
+            if (this.elements.phraseElement) {
+                this.elements.phraseElement.style.opacity = 0;
+                setTimeout(() => {
+                    this.elements.phraseElement.textContent = phrase;
+                    this.elements.phraseElement.style.opacity = 1;
+                }, 200); // Pequeño delay para que coincida con el cambio de foto
+            }
+            
+            if (this.elements.mobilePhrase) {
+                this.elements.mobilePhrase.textContent = phrase;
+            }
         }
     }
-
     // === INICIALIZACIÓN ===
     const elements = {
         welcomeModal: document.getElementById("welcomeModal"),
