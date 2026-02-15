@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nini - 2 Años y 2 Meses 💖</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #ff758c;
+            --accent: #ff0080;
+            --dark: #4a4e69;
+            --glass: rgba(255, 255, 255, 0.90);
+            --shadow: 0 15px 45px rgba(255, 0, 128, 0.35);
+            /* Degradado vibrante */
+            --bg-gradient: linear-gradient(-45deg, #ff4e50, #f9d423, #ff0080, #7928ca);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientAnimation 12s ease infinite;
+            min-height: 100vh;
+            color: var(--dark);
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Títulos especiales */
+        .dancing-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Pantalla de Login (Seguridad) */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        .login-content {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            max-width: 420px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .login-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        /* Contador */
+        .time-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 90px;
+            border: 2px solid #ffe5ec;
+            transition: all 0.3s ease;
+        }
+        .time-box:hover { transform: translateY(-5px); }
+
+        .time-val {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8e9aaf;
+            font-weight: 700;
+        }
+
+        /* --- CARRUSEL ORIGINAL (El que funciona bien) --- */
+        .carousel-inner {
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            height: 65vh;
+            min-height: 450px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            /* Sombra fuerte para resaltar */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .carousel-item {
+            height: 100%; /* Asegura que ocupe todo el alto */
+        }
+
+        .carousel-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: contain; /* Clave: Mantiene proporción sin cortar */
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .custom-caption {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark);
+            border-radius: 60px;
+            padding: 12px 35px;
+            bottom: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1.5px solid var(--primary);
+        }
+
+        /* Elementos Flotantes (Mariposas y Corazones) */
+        .floating-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 999; /* Por encima de todo */
+            animation: floatAnimation linear forwards;
+            font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+            text-shadow: 0 0 10px rgba(255,255,255,0.8); /* Brillo alrededor */
+        }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% { transform: translateY(-10vh) translateX(30px) rotate(360deg); opacity: 0; }
+        }
+
+        .music-player, .card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: none;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
+            50% { transform: scale(1.08); box-shadow: 0 0 0 20px rgba(255, 77, 109, 0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .carousel-inner { height: 50vh; min-height: 350px; }
+            .time-box { min-width: 80px; padding: 10px; }
+            .time-val { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loginScreen" class="login-overlay">
+        <div class="login-content">
+            <div class="mb-4">
+                <span style="font-size: 5rem;" class="pulse-animation">💖</span>
+            </div>
+            <h2 class="mb-3 fw-bold dancing-font" style="color: var(--primary); font-size: 2.5rem;">Hola, Nini</h2>
+            <p class="mb-4 text-muted">Escribe nuestra fecha especial (DDMM) para abrir tu regalo:</p>
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <input type="password" id="passwordInput" class="form-control text-center fs-3" style="max-width: 160px; border-radius: 15px;" placeholder="****" maxlength="4" autocomplete="off">
+                <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle shadow pulse-animation">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+            <p id="errorMsg" class="text-danger fw-bold" style="display:none;">¡Ups! Esa no es la fecha, inténtalo de nuevo mi amor. 😢</p>
+        </div>
+    </div>
+
+    <main class="container py-4">
+        <header class="text-center py-5">
+            <h1 class="display-3 fw-bold text-white dancing-font" style="text-shadow: 2px 2px 15px rgba(0,0,0,0.3);">Nuestro Amor Eterno 💖</h1>
+            <p class="lead text-white fw-light fs-4">Felicidades por estos 2 años y 2 meses maravillosos.</p>
+        </header>
+
+        <section class="mb-5 text-center">
+            <div id="contador-amor" class="d-flex justify-content-center flex-wrap gap-2 gap-md-4">
+                </div>
+        </section>
+
+        <section id="musica" class="mb-5">
+            <div class="music-player text-center p-4">
+                <h6 id="songTitle" class="mb-3 text-muted fst-italic">🎵 Pulsa Play para nuestra música...</h6>
+                <audio id="backgroundMusic"></audio>
+                <div class="controls d-flex justify-content-center align-items-center gap-3 mb-3">
+                    <button id="shuffleButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-random"></i></button>
+                    <button id="prevButton" class="btn btn-secondary btn-sm rounded-circle"><i class="fas fa-backward"></i></button>
+                    <button id="playPauseButton" class="btn btn-danger btn-lg rounded-circle shadow-lg pulse-animation"><i class="fas fa-play"></i></button>
+                    <button id="nextButton" class="btn btn-secondary btn-sm rounded-circle"><i class="fas fa-forward"></i></button>
+                    <button id="repeatButton" class="btn btn-outline-danger btn-sm rounded-circle"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="volume-control w-75 mx-auto">
+                    <input type="range" class="form-range" id="volumeControl" min="0" max="1" step="0.01" value="0.5">
+                </div>
+            </div>
+        </section>
+
+        <section id="carrusel" class="mb-5">
+            <div id="photoCarousel" class="carousel slide shadow-lg rounded-4 overflow-hidden" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carouselContainer">
+                    </div>
+                <div class="carousel-caption d-none d-md-block custom-caption">
+                    <p id="carouselPhrase" class="h5 mb-0 dancing-font fw-bold">Cada foto es un recuerdo que atesoro...</p>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+            <div class="text-center mt-3 d-md-none">
+                <p class="lead fst-italic text-white bg-dark bg-opacity-25 rounded-pill py-2 px-3" id="mobilePhrase"></p>
+            </div>
+        </section>
+
+        <section class="text-center mb-5">
+            <button class="btn btn-light btn-lg shadow px-5 rounded-pill fw-bold text-danger border-2 border-danger" id="verCartaBtn">Ver nuestra carta de amor 💌</button>
+            <div id="cartaContent" class="card mt-4 p-4 text-start" style="display:none; transition: 0.5s;">
+                <div class="card-body">
+                    <h3 class="card-title text-center mb-4 text-danger fw-bold dancing-font">Mi amada Nini 🌹</h3>
+                    <p class="fs-5">Hoy celebramos <strong>2 años y 2 meses</strong> de una historia que parece sacada de un cuento.</p>
+                    <p class="fs-5">Desde aquel 15 de diciembre de 2023, mi vida se llenó de luz. Eres mi refugio y mi mejor amiga.</p>
+                    <p class="fs-5">Gracias por amarme tal como soy. Eres mi presente y mi futuro. Te amo mucho.</p>
+                    <p class="text-end mt-4 fs-4 fw-bold text-danger dancing-font">Con todo mi amor,<br>Tu Tilín, Pedrito. ❤️</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center mb-5">
+            <button id="loveButton" class="btn btn-danger btn-lg rounded-pill shadow-lg pulse-animation px-5 py-3 fs-4 fw-bold">
+                ¡Más Magia! ✨💖
+            </button>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 text-white">
+        <small class="opacity-75">Hecho con el alma ❤️ por Pedrito para Nini &bull; 2026</small>
+    </footer>
+
+    <div class="modal fade" id="welcomeModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <h2 class="mb-3 text-danger fw-bold dancing-font">¡Hola amor mío! 💘</h2>
+                <p class="fs-5">He preparado esta sorpresa para que nunca olvides lo mucho que te amo.</p>
+                <button type="button" class="btn btn-danger btn-lg rounded-pill px-5 py-2 mt-3" data-bs-dismiss="modal">Entrar 😍</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const CONFIG = {
+                START_DATE: new Date('2023-12-15T00:00:00'),
+                CAROUSEL: { 
+                    INTERVAL: 4500, 
+                    TOTAL_IMAGES: 120, // ACTUALIZADO A 120 FOTOS
+                    IMAGE_PATH: './img/photo' 
+                },
+                PHRASES: [
+                    "Eres la razón por la que sonrío cada día.", "Tu amor llena mi vida de colores vivos.", "Cada momento contigo es un regalo.",
+                    "Eres mi sol constante.", "Tu risa es la melodía más dulce.", "A tu lado, todo es perfecto.",
+                    "Eres mi hoy, mi mañana y mi siempre.", "Amo cada pequeño detalle de ti.", "Gracias por ser mi paz.",
+                    "Nuestra historia de amor es mi favorita."
+                ],
+                // ACTUALIZADO A 40 CANCIONES
+                SONGS: Array.from({length: 40}, (_, i) => `audio/cancion${i+1}.mp3`)
+            };
+
+            // 1. Contador
+            function actualizarContador() {
+                const now = new Date();
+                const startDate = CONFIG.START_DATE;
+                let years = now.getFullYear() - startDate.getFullYear();
+                let months = now.getMonth() - startDate.getMonth();
+                let days = now.getDate() - startDate.getDate();
+                if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
+                if (months < 0) { years--; months += 12; }
+                const diff = now - startDate;
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                document.getElementById('contador-amor').innerHTML = `
+                    <div class="time-box"><span class="time-val">${years}</span><span class="time-label">Años</span></div>
+                    <div class="time-box"><span class="time-val">${months}</span><span class="time-label">Meses</span></div>
+                    <div class="time-box"><span class="time-val">${days}</span><span class="time-label">Días</span></div>
+                    <div class="time-box"><span class="time-val">${h}</span><span class="time-label">Hrs</span></div>
+                    <div class="time-box"><span class="time-val">${m}</span><span class="time-label">Min</span></div>
+                    <div class="time-box"><span class="time-val">${s}</span><span class="time-label">Seg</span></div>
+                `;
+            }
+            setInterval(actualizarContador, 1000);
+            actualizarContador();
+
+            // 2. Música
+            const audio = document.getElementById('backgroundMusic');
+            const playBtn = document.getElementById('playPauseButton');
+            let currentSong = 0;
+            let isPlaying = false;
+
+            function loadSong(idx) {
+                audio.src = CONFIG.SONGS[idx];
+                document.getElementById('songTitle').textContent = `🎵 Reproduciendo: Canción ${idx + 1}`;
+            }
+
+            playBtn.onclick = () => {
+                if(!audio.src) loadSong(0);
+                if(isPlaying) audio.pause(); else audio.play();
+                isPlaying = !isPlaying;
+                playBtn.innerHTML = `<i class="fas fa-${isPlaying ? 'pause' : 'play'}"></i>`;
+            };
+
+            document.getElementById('nextButton').onclick = () => {
+                currentSong = (currentSong + 1) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
+
+            document.getElementById('prevButton').onclick = () => {
+                currentSong = (currentSong - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length;
+                loadSong(currentSong); audio.play(); isPlaying = true;
+                playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            };
+
+            document.getElementById('volumeControl').oninput = (e) => audio.volume = e.target.value;
+            audio.onended = () => document.getElementById('nextButton').click();
+
+            // 3. Carrusel (LÓGICA ORIGINAL RESTAURADA)
+            const container = document.getElementById('carouselContainer');
+            // Creamos el array de IDs
+            const ids = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
+            
+            // Inyectamos las fotos con la estructura simple que funcionaba
+            ids.forEach((n, i) => {
+                const div = document.createElement('div');
+                div.className = `carousel-item ${i === 0 ? 'active' : ''}`;
+                // Eliminamos clases extra que causaban conflicto, dejamos solo la imagen
+                div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" onerror="this.parentElement.remove()">`;
+                container.appendChild(div);
+            });
+
+            let phraseIdx = 0;
+            document.getElementById('photoCarousel').addEventListener('slide.bs.carousel', () => {
+                phraseIdx = (phraseIdx + 1) % CONFIG.PHRASES.length;
+                const p = CONFIG.PHRASES[phraseIdx];
+                document.getElementById('carouselPhrase').textContent = p;
+                if(document.getElementById('mobilePhrase')) document.getElementById('mobilePhrase').textContent = p;
+            });
+
+            // 4. Elementos Flotantes (Corazones y Mariposas GRANDES)
+            function createFloatingElement() {
+                const el = document.createElement('div');
+                el.classList.add('floating-element');
+                // Símbolos variados
+                const symbols = ['❤', '💖', '💕', '💗', '🦋', '✨', '🌸']; 
+                el.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                el.style.left = Math.random() * 95 + 'vw';
+                // Más lentos para que se aprecien mejor al ser grandes
+                el.style.animationDuration = Math.random() * 8 + 6 + 's';
+                // TAMAÑO AUMENTADO: Entre 30px y 60px
+                el.style.fontSize = Math.random() * 30 + 30 + 'px';
+                el.style.opacity = Math.random() * 0.5 + 0.4;
+                
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 14000);
+            }
+            // Frecuencia alta para que se vea dinámico
+            setInterval(createFloatingElement, 300);
+
+            // 5. Acceso (Password: 1512)
+            const lBtn = document.getElementById('loginBtn');
+            const pInp = document.getElementById('passwordInput');
+            const lScr = document.getElementById('loginScreen');
+
+            const login = () => {
+                if(pInp.value === "1512") {
+                    lScr.classList.add('login-hidden');
+                    setTimeout(() => {
+                        lScr.remove();
+                        new bootstrap.Modal(document.getElementById('welcomeModal')).show();
+                        confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+                        playBtn.click(); // Inicia música al entrar
+                    }, 1000);
+                } else {
+                    document.getElementById('errorMsg').style.display = 'block';
+                    pInp.classList.add('is-invalid');
+                    setTimeout(() => pInp.classList.remove('is-invalid'), 500);
+                    pInp.value = "";
+                }
+            };
+            lBtn.onclick = login;
+            pInp.onkeypress = (e) => { if(e.key === 'Enter') login(); };
+            setTimeout(() => pInp.focus(), 600);
+
+            // 6. Carta
+            document.getElementById('verCartaBtn').onclick = function() {
+                const c = document.getElementById('cartaContent');
+                const isH = c.style.display === 'none';
+                c.style.display = isH ? 'block' : 'none';
+                this.textContent = isH ? 'Ocultar carta 🙈' : 'Ver nuestra carta de amor 💌';
+            };
+
+            // 7. Love Button
+            document.getElementById('loveButton').onclick = () => {
+                confetti({ particleCount: 100, spread: 160, shapes: ['heart'], colors: ['#ff4d6d', '#ffffff'], scalar: 2 });
+            };
+        });
+    </script>
+</body>
+</html>
