@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         START_DATE: new Date('2023-12-15T00:00:00'),
         CAROUSEL: { 
             INTERVAL: 4500, 
-            TOTAL_IMAGES: 100, // He subido esto a 100, ajusta este número al total real de tus fotos
+            TOTAL_IMAGES: 100, // Ajusta este número al total de fotos (JPG) que subas
             IMAGE_PATH: './img/photo' 
         },
         PHRASES: [
@@ -142,24 +142,28 @@ document.addEventListener("DOMContentLoaded", () => {
             this.init();
         }
         init() {
+            // Aleatorizar el orden de las imágenes
             const ids = Array.from({length: CONFIG.CAROUSEL.TOTAL_IMAGES}, (_, i) => i + 1).sort(() => Math.random() - 0.5);
             ids.forEach((n, i) => {
                 const div = document.createElement('div');
                 div.className = `carousel-item ${i === 0 ? 'active' : ''}`;
-                div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" loading="eager" onerror="this.src='https://via.placeholder.com/800x600?text=Recuerdo+${n}'">`;
+                // Solo JPG para asegurar compatibilidad total
+                div.innerHTML = `<img src="${CONFIG.CAROUSEL.IMAGE_PATH}${n}.jpg" loading="eager" onerror="this.parentElement.remove()">`;
                 this.cont.appendChild(div);
             });
             document.getElementById('photoCarousel').addEventListener('slide.bs.carousel', (e) => {
                 this.idx = (this.idx + (e.direction === 'left' ? 1 : -1) + CONFIG.PHRASES.length) % CONFIG.PHRASES.length;
                 const p = CONFIG.PHRASES[this.idx];
-                this.pEl.style.opacity = 0;
-                setTimeout(() => {
-                    this.pEl.textContent = p;
-                    if(this.mEl) this.mEl.textContent = p;
-                    this.pEl.style.opacity = 1;
-                }, 200);
+                if(this.pEl) {
+                    this.pEl.style.opacity = 0;
+                    setTimeout(() => {
+                        this.pEl.textContent = p;
+                        if(this.mEl) this.mEl.textContent = p;
+                        this.pEl.style.opacity = 1;
+                    }, 200);
+                }
             });
-            this.pEl.textContent = CONFIG.PHRASES[0];
+            if(this.pEl) this.pEl.textContent = CONFIG.PHRASES[0];
         }
     }
 
@@ -184,7 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 player.toggle(); 
             }, 800);
         } else {
-            document.getElementById('errorMsg').style.display = 'block';
+            const errorMsg = document.getElementById('errorMsg');
+            if(errorMsg) errorMsg.style.display = 'block';
             pInp.classList.add('is-invalid');
             setTimeout(() => pInp.classList.remove('is-invalid'), 500);
         }
