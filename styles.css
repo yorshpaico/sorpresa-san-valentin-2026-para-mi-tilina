@@ -81,55 +81,57 @@ body {
     background: #e04050;
 }
 
-/* === CARRUSEL MEJORADO (RESPONSIVE PRO) === */
+/* === CARRUSEL CORREGIDO (FINAL) === */
 .carousel-inner {
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.2); /* Fondo oscuro suave para resaltar la foto */
+    background: rgba(0, 0, 0, 0.1); /* Fondo sutil */
     box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Asegura que nada se salga */
 }
 
 .carousel-item {
-    /* Altura dinámica: ocupa el 60% de la altura de la pantalla del celular/PC */
-    height: 60vh; 
-    min-height: 400px; /* Para que no sea muy pequeño en móviles viejos */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* IMPORTANTE: No usar display:flex aquí porque rompe Bootstrap */
+    height: 60vh; /* Altura fija para el celular/PC */
+    min-height: 400px;
+    width: 100%;
+    /* Bootstrap se encarga de poner display: block o none aquí automáticamente */
 }
 
 .carousel-item img {
-    /* Mágia: "contain" muestra la foto ENTERA sin cortar nada */
-    object-fit: contain; 
-    max-height: 100%;
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    margin: 0 auto;
+    /* Aquí ocurre la magia para centrar sin romper nada */
+    height: 100%;
+    width: 100%;
+    object-fit: contain; /* La foto se ajusta completa sin cortarse */
     display: block;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* Sombrita a la foto */
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* Sombrita estética */
 }
 
-/* Ajuste específico para móvil para aprovechar espacio */
+/* Ajuste para móviles */
 @media (max-width: 768px) {
     .carousel-item {
-        height: 50vh; /* Un poco más compacto en celular */
+        height: 50vh; /* Un poco más pequeño en celular */
         min-height: 300px;
     }
 }
 
 .custom-caption {
-    background: rgba(255, 255, 255, 0.85); /* Fondo clarito para el texto */
-    color: #333; /* Texto oscuro para que se lea bien */
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
     border-radius: 50px;
     padding: 8px 20px;
     bottom: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     display: inline-block;
     left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    white-space: nowrap;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    width: max-content;
+    max-width: 90%;
+    white-space: normal; /* Permite que el texto baje de línea en móviles */
 }
+
 /* Texto de la carta */
 .card-body {
     font-size: 1.1rem;
