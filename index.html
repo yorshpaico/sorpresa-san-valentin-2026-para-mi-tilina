@@ -18,7 +18,7 @@
             --dark: #4a4e69;
             --glass: rgba(255, 255, 255, 0.85);
             --shadow: 0 15px 45px rgba(255, 0, 128, 0.35);
-            /* Degradado más vivo, romántico y vibrante */
+            /* Degradado ultra vibrante y romántico */
             --bg-gradient: linear-gradient(-45deg, #ff4e50, #f9d423, #ff0080, #7928ca);
         }
 
@@ -40,7 +40,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Capa de estrellas y brillos mágicos */
+        /* Capa de estrellas y brillos mágicos mejorada */
         body::before {
             content: "";
             position: fixed;
@@ -49,21 +49,22 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.6) 1px, transparent 1px),
-                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 2px, transparent 2px),
-                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.6) 1.5px, transparent 1.5px),
-                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.5) 1px, transparent 1px);
-            background-size: 250px 250px;
-            animation: twinkling 3s ease-in-out infinite alternate;
+                radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 1px, transparent 1px),
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.7) 2px, transparent 2px),
+                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.8) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.7) 1px, transparent 1px),
+                radial-gradient(circle at 90% 90%, rgba(255,255,255,0.8) 2px, transparent 2px);
+            background-size: 200px 200px;
+            animation: twinkling 2s ease-in-out infinite alternate;
             z-index: -2;
         }
 
         @keyframes twinkling {
-            from { opacity: 0.3; transform: scale(1); }
-            to { opacity: 0.9; transform: scale(1.1); }
+            from { opacity: 0.4; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.15); }
         }
 
-        /* Pantalla de Login (Seguridad) */
+        /* Pantalla de Login */
         .login-overlay {
             position: fixed;
             top: 0;
@@ -157,13 +158,13 @@
             border: 1.5px solid var(--primary);
         }
 
-        /* Corazones Flotantes */
-        .floating-heart {
+        /* Elementos Flotantes (Corazones y Estrellas) */
+        .floating-element {
             position: fixed;
-            color: rgba(255, 255, 255, 0.6);
             pointer-events: none;
             z-index: -1;
             animation: floatAnimation linear forwards;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
         }
 
         @keyframes floatAnimation {
@@ -205,10 +206,10 @@
             <div class="mb-4">
                 <span style="font-size: 5rem;">💖</span>
             </div>
-            <h2 class="mb-3 fw-bold" style="color: var(--primary);">Bienvenida, Nicol</h2>
+            <!-- CAMBIADO A NINI -->
+            <h2 class="mb-3 fw-bold" style="color: var(--primary);">Bienvenida, Nini</h2>
             <p class="mb-4 text-muted">Escribe la fecha de nuestro aniversario (DDMM) para abrir tu regalo:</p>
             <div class="d-flex justify-content-center gap-2 mb-3">
-                <!-- QUITADO EL PLACEHOLDER 1512 PARA QUE NO HAYA PISTAS -->
                 <input type="password" id="passwordInput" class="form-control text-center fs-3" style="max-width: 160px; border-radius: 15px;" placeholder="****" maxlength="4" autocomplete="off">
                 <button id="loginBtn" class="btn btn-danger btn-lg rounded-circle shadow pulse-animation">
                     <i class="fas fa-heart"></i>
@@ -272,6 +273,7 @@
             <button class="btn btn-light btn-lg shadow px-5 rounded-pill fw-bold text-danger border-2 border-danger" id="verCartaBtn">Ver nuestra carta de amor 💌</button>
             <div id="cartaContent" class="card mt-4 p-4 text-start" style="display:none; transition: 0.5s;">
                 <div class="card-body">
+                    <!-- CAMBIADO A NINI -->
                     <h3 class="card-title text-center mb-4 text-danger fw-bold">Mi amada Nini 🌹</h3>
                     <p class="fs-5">Hoy celebramos <strong>2 años y 2 meses</strong> de una historia que parece sacada de un cuento.</p>
                     <p class="fs-5">Desde aquel 15 de diciembre de 2023, mi vida se llenó de luz. Eres mi refugio y mi mejor amiga.</p>
@@ -289,14 +291,15 @@
     </main>
 
     <footer class="text-center py-4 text-white">
-        <small class="opacity-75">Hecho con el alma ❤️ por Pedrito para Nicol &bull; 2026</small>
+        <!-- CAMBIADO A NINI -->
+        <small class="opacity-75">Hecho con el alma ❤️ por Pedrito para Nini &bull; 2026</small>
     </footer>
 
     <!-- MODAL DE BIENVENIDA -->
     <div class="modal fade" id="welcomeModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content text-center p-4">
-                <h2 class="mb-3 text-danger fw-bold">¡Hola amor mío! 💘</h2>
+                <h2 class="mb-3 text-danger fw-bold">¡Hola Nini! 💘</h2>
                 <p class="fs-5">He preparado esta sorpresa para que nunca olvides lo mucho que te amo.</p>
                 <button type="button" class="btn btn-danger btn-lg rounded-pill px-5 py-2 mt-3" data-bs-dismiss="modal">Entrar 😍</button>
             </div>
@@ -397,19 +400,31 @@
                 if(document.getElementById('mobilePhrase')) document.getElementById('mobilePhrase').textContent = p;
             });
 
-            // 4. Corazones Flotantes (MAGIA VIVA)
-            function createHeart() {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                heart.innerHTML = ['❤', '💖', '💕', '💗'][Math.floor(Math.random() * 4)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = Math.random() * 5 + 5 + 's';
-                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-                heart.style.opacity = Math.random() * 0.5 + 0.3;
-                document.body.appendChild(heart);
-                setTimeout(() => heart.remove(), 10000);
+            // 4. Elementos Flotantes (MAGIA VIVA: Corazones y Estrellas)
+            function createFloatingElement() {
+                const el = document.createElement('div');
+                el.classList.add('floating-element');
+                
+                // Mezcla de corazones y estrellas
+                const icons = ['❤', '💖', '💕', '💗', '⭐', '✨'];
+                el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.animationDuration = Math.random() * 5 + 5 + 's';
+                el.style.fontSize = Math.random() * 20 + 10 + 'px';
+                
+                // Color dorado para estrellas, rosado para corazones
+                if(el.innerHTML === '⭐' || el.innerHTML === '✨') {
+                    el.style.color = 'rgba(255, 215, 0, 0.7)';
+                } else {
+                    el.style.color = 'rgba(255, 255, 255, 0.6)';
+                }
+                
+                el.style.opacity = Math.random() * 0.5 + 0.3;
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 10000);
             }
-            setInterval(createHeart, 600);
+            setInterval(createFloatingElement, 500); // Crea uno cada medio segundo
 
             // 5. Acceso (Password: 1512)
             const lBtn = document.getElementById('loginBtn');
@@ -446,7 +461,12 @@
 
             // 7. Love Button
             document.getElementById('loveButton').onclick = () => {
-                confetti({ particleCount: 100, spread: 160, shapes: ['heart'], colors: ['#ff4d6d', '#ffffff'] });
+                confetti({ 
+                    particleCount: 100, 
+                    spread: 160, 
+                    shapes: ['heart', 'circle'], 
+                    colors: ['#ff4d6d', '#ffffff', '#ffd700'] 
+                });
             };
         });
     </script>
