@@ -1,12 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
     const CONFIG = {
         START_DATE: new Date('2023-12-15T00:00:00'),
-        CAROUSEL: { INTERVAL: 4500, TOTAL_IMAGES: 74, IMAGE_PATH: './img/photo' },
+        CAROUSEL: { 
+            INTERVAL: 4500, 
+            TOTAL_IMAGES: 100, // He subido esto a 100, ajusta este número al total real de tus fotos
+            IMAGE_PATH: './img/photo' 
+        },
         PHRASES: [
-            "Eres la razón por la que sonrío cada día.", "Tu amor llena mi vida de colores.", "Cada momento contigo es un regalo.",
-            "Eres mi sol en los días nublados.", "Tu risa es la melodía más hermosa.", "Contigo todo es perfecto.",
-            "Eres mi hoy, mi mañana y mi siempre.", "Amo cada detalle de ti.", "Gracias por ser mi paz.",
-            "Eres mi vida blanquita hermosa.", "No hay lugar mejor que tus brazos.", "Agradezco al destino por ti."
+            "Eres la razón por la que sonrío cada día.",
+            "Tu amor llena mi vida de colores.",
+            "Cada momento contigo es un regalo.",
+            "Eres mi sol en los días nublados.",
+            "Tu risa es la melodía más hermosa.",
+            "Contigo todo es perfecto.",
+            "Eres mi hoy, mi mañana y mi siempre.",
+            "Amo cada detalle de ti.",
+            "Gracias por ser mi paz.",
+            "Eres mi vida blanquita hermosa.",
+            "No hay lugar mejor que tus brazos.",
+            "Agradezco al destino por ti.",
+            "Cada día a tu lado es una nueva aventura.",
+            "Eres el sueño del que nunca quiero despertar.",
+            "Tu amor es mi refugio favorito.",
+            "No cambiaría ni un segundo de lo que hemos vivido.",
+            "Eres la pieza que le faltaba a mi rompecabezas.",
+            "Gracias por hacerme el hombre más feliz del mundo.",
+            "Te amo más de lo que las palabras pueden expresar.",
+            "Eres mi persona favorita en todo el universo.",
+            "Cada mirada tuya me vuelve a enamorar.",
+            "Juntos somos el mejor equipo.",
+            "Eres mi luz, mi guía y mi motor.",
+            "Nuestro amor es mi historia favorita.",
+            "Por muchos meses y años más de pura felicidad."
         ],
         SONGS: Array.from({length: 28}, (_, i) => `audio/cancion${i+1}.mp3`)
     };
@@ -24,8 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
             let years = now.getFullYear() - this.startDate.getFullYear();
             let months = now.getMonth() - this.startDate.getMonth();
             let days = now.getDate() - this.startDate.getDate();
-            if (days < 0) { months--; const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0); days += lastMonth.getDate(); }
-            if (months < 0) { years--; months += 12; }
+            if (days < 0) {
+                months--;
+                const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                days += lastMonth.getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
             const diff = now - this.startDate;
             const h = Math.floor((diff % 86400000) / 3600000);
             const m = Math.floor((diff % 3600000) / 60000);
@@ -62,8 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('prevButton').onclick = () => this.prev();
             this.vol.oninput = (e) => this.audio.volume = e.target.value;
             this.audio.onended = () => this.isRepeating ? this.audio.play() : this.next();
-            this.shuffBtn.onclick = () => { this.isShuffling = !this.isShuffling; this.shuffBtn.classList.toggle('btn-danger', this.isShuffling); };
-            this.repBtn.onclick = () => { this.isRepeating = !this.isRepeating; this.repBtn.classList.toggle('btn-danger', this.isRepeating); };
+            this.shuffBtn.onclick = () => {
+                this.isShuffling = !this.isShuffling;
+                this.shuffBtn.classList.toggle('btn-danger', this.isShuffling);
+            };
+            this.repBtn.onclick = () => {
+                this.isRepeating = !this.isRepeating;
+                this.repBtn.classList.toggle('btn-danger', this.isRepeating);
+            };
         }
         load(i) {
             this.idx = i;
@@ -72,15 +110,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         toggle() {
             if(!this.audio.src) this.load(0);
-            this.isPlaying ? this.audio.pause() : this.audio.play();
+            if (this.isPlaying) {
+                this.audio.pause();
+            } else {
+                this.audio.play();
+            }
             this.isPlaying = !this.isPlaying;
             this.playBtn.innerHTML = `<i class="fas fa-${this.isPlaying ? 'pause' : 'play'}"></i>`;
         }
         next() {
             let n = this.isShuffling ? Math.floor(Math.random() * CONFIG.SONGS.length) : (this.idx + 1) % CONFIG.SONGS.length;
-            this.load(n); this.audio.play(); this.isPlaying = true; this.playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
+            this.load(n);
+            this.audio.play();
+            this.isPlaying = true;
+            this.playBtn.innerHTML = `<i class="fas fa-pause"></i>`;
         }
-        prev() { this.idx = (this.idx - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length; this.load(this.idx); this.audio.play(); }
+        prev() {
+            this.idx = (this.idx - 1 + CONFIG.SONGS.length) % CONFIG.SONGS.length;
+            this.load(this.idx);
+            this.audio.play();
+        }
     }
 
     // 3. Lógica Carrusel
@@ -104,17 +153,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 this.idx = (this.idx + (e.direction === 'left' ? 1 : -1) + CONFIG.PHRASES.length) % CONFIG.PHRASES.length;
                 const p = CONFIG.PHRASES[this.idx];
                 this.pEl.style.opacity = 0;
-                setTimeout(() => { this.pEl.textContent = p; this.mEl.textContent = p; this.pEl.style.opacity = 1; }, 200);
+                setTimeout(() => {
+                    this.pEl.textContent = p;
+                    if(this.mEl) this.mEl.textContent = p;
+                    this.pEl.style.opacity = 1;
+                }, 200);
             });
             this.pEl.textContent = CONFIG.PHRASES[0];
         }
     }
 
+    // Instanciar componentes
     new TimeCounter(CONFIG.START_DATE, 'contador-amor');
     const player = new MusicPlayer();
     new CarouselManager();
 
-    // Login Logic
+    // Lógica de Acceso
     const lBtn = document.getElementById('loginBtn');
     const pInp = document.getElementById('passwordInput');
     const lScr = document.getElementById('loginScreen');
@@ -124,7 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
             lScr.classList.add('login-hidden');
             setTimeout(() => {
                 lScr.remove();
-                new bootstrap.Modal(document.getElementById('welcomeModal')).show();
+                const welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+                welcomeModal.show();
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
                 player.toggle(); 
             }, 800);
@@ -134,19 +189,26 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => pInp.classList.remove('is-invalid'), 500);
         }
     };
-    lBtn.onclick = loginAction;
-    pInp.onkeypress = (e) => { if(e.key === 'Enter') loginAction(); };
-    setTimeout(() => pInp.focus(), 600);
 
-    // Carta
-    document.getElementById('verCartaBtn').onclick = function() {
-        const c = document.getElementById('cartaContent');
-        const isH = c.style.display === 'none';
-        c.style.display = isH ? 'block' : 'none';
-        this.textContent = isH ? 'Ocultar Carta 🙈' : 'Leer Carta 💌';
-    };
-    // Love Confetti
-    document.getElementById('loveButton').onclick = () => {
-        confetti({ particleCount: 100, spread: 360, shapes: ['heart'], colors: ['#ff4757', '#ff6b81'] });
-    };
+    if(lBtn) lBtn.onclick = loginAction;
+    if(pInp) pInp.onkeypress = (e) => { if(e.key === 'Enter') loginAction(); };
+    setTimeout(() => { if(pInp) pInp.focus(); }, 600);
+
+    // Eventos de UI
+    const verCarta = document.getElementById('verCartaBtn');
+    if(verCarta) {
+        verCarta.onclick = function() {
+            const c = document.getElementById('cartaContent');
+            const isHidden = c.style.display === 'none';
+            c.style.display = isHidden ? 'block' : 'none';
+            this.textContent = isHidden ? 'Ocultar Carta 🙈' : 'Leer Carta 💌';
+        };
+    }
+
+    const loveBtn = document.getElementById('loveButton');
+    if(loveBtn) {
+        loveBtn.onclick = () => {
+            confetti({ particleCount: 100, spread: 360, shapes: ['heart'], colors: ['#ff4757', '#ff6b81'] });
+        };
+    }
 });
