@@ -81,27 +81,55 @@ body {
     background: #e04050;
 }
 
-/* Carrusel */
+/* === CARRUSEL MEJORADO (RESPONSIVE PRO) === */
 .carousel-inner {
     border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2); /* Fondo oscuro suave para resaltar la foto */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
 }
+
+.carousel-item {
+    /* Altura dinámica: ocupa el 60% de la altura de la pantalla del celular/PC */
+    height: 60vh; 
+    min-height: 400px; /* Para que no sea muy pequeño en móviles viejos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .carousel-item img {
-    height: 500px;
-    object-fit: cover;
+    /* Mágia: "contain" muestra la foto ENTERA sin cortar nada */
+    object-fit: contain; 
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); /* Sombrita a la foto */
 }
+
+/* Ajuste específico para móvil para aprovechar espacio */
 @media (max-width: 768px) {
-    .carousel-item img {
-        height: 350px;
+    .carousel-item {
+        height: 50vh; /* Un poco más compacto en celular */
+        min-height: 300px;
     }
 }
 
 .custom-caption {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.85); /* Fondo clarito para el texto */
+    color: #333; /* Texto oscuro para que se lea bien */
     border-radius: 50px;
-    padding: 10px 20px;
-    bottom: 30px;
+    padding: 8px 20px;
+    bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    white-space: nowrap;
 }
-
 /* Texto de la carta */
 .card-body {
     font-size: 1.1rem;
