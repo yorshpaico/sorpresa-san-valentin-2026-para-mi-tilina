@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         START_DATE: new Date('2023-12-15T00:00:00'), // FECHA DE INICIO DE LA RELACIÓN
         CAROUSEL: {
             INTERVAL: 4000,
-            TOTAL_IMAGES: 74, 
+            TOTAL_IMAGES: 120, 
             IMAGE_PATH: './img/photo' // Se asume que los archivos son photo1.jpg, photo2.jpg...
         },
         MODAL: {
